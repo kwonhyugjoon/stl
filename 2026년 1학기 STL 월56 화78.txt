@@ -1,0 +1,5751 @@
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 3일 (1주 1일)
+//--------------------------------------------------
+// 컴파일 환경 - Release / x64
+// VS 버전 - 17.14.27
+// 프로젝트 설정 - C++언어표준 - /std:c++latest
+//               - C/C++언어 - SDL검사 - 아니요
+//--------------------------------------------------
+// 한 학기 강의를 자동저장하는 save 함수를 만든다.
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+
+void save(const std::string&);
+
+int main()
+{
+	std::cout << "2026년 3월 3일" << '\n';
+
+	save("메인.cpp");
+}
+
+// 여기 설명부터 다시 합니다.
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname };
+	std::ofstream out{ "2026년 1학기 STL 월56 화78.txt", std::ios::app };
+
+	std::copy(std::istreambuf_iterator<char>{in}, {},
+		std::ostream_iterator<char>{out});
+}
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// 컴파일 환경 - Release / x64
+// VS 버전 - 17.14.27
+// 프로젝트 설정 - C++언어표준 - /std:c++latest
+//               - C/C++언어 - SDL검사 - 아니요
+//--------------------------------------------------
+// 한 학기 강의를 자동저장하는 save 함수를 만든다.
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+
+void save(const std::string&);
+
+// 사용하지 말아야 할 자료형 -> 대체할 수단이 존재 -> zero-overhead( 대체하며 얻는 불이익이 없음)
+// 1. char* -> std::string
+// 2. T* -> smart pointer를 사용할 것
+// 3. T[] -> std::array를 사용할 것
+
+int main()
+{
+	std::cout << "2026년 3월 3일" << '\n';
+
+	save("메인.cpp");
+}
+
+// fname - naming convention
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname };		//RAII 자동관리(메모리 등)
+	if (not in) {		//자동관리가 비정상이면
+		std::cout << fname << "- 열 수 없습니다" << '\n';
+		exit( 2026030 );
+	}
+
+	std::cout << fname << "를 저장합니다" << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56 화78.txt", std::ios::app };
+
+	//std::copy(어디에서, 어디까지를, 어디로);
+	std::copy(std::istreambuf_iterator <char>{in}, {},
+		std::ostream_iterator<char>{out});
+}
+
+
+=========================================
+저장한 시간 - 
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// 컴파일 환경 - Release / x64
+// VS 버전 - 17.14.27
+// 프로젝트 설정 - C++언어표준 - /std:c++latest
+//               - C/C++언어 - SDL검사 - 아니요
+//--------------------------------------------------
+// 한 학기 강의를 자동저장하는 save 함수를 만든다.
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+
+void save(const std::string&);
+
+// 사용하지 말아야 할 자료형 -> 대체할 수단이 존재 -> zero-overhead( 대체하며 얻는 불이익이 없음)
+// 1. char* -> std::string
+// 2. T* -> smart pointer를 사용할 것
+// 3. T[] -> std::array를 사용할 것
+
+int main()
+{
+	std::cout << "2026년 3월 3일" << '\n';
+
+	save("메인.cpp");
+}
+
+// fname - naming convention
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname };		//RAII 자동관리(메모리 등)
+	if (not in) {		//자동관리가 비정상이면
+		std::cout << fname << "- 열 수 없습니다" << '\n';
+		exit( 2026030 );
+	}
+
+	std::cout << "\"" << fname << "\"를 저장합니다" << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56 화78.txt", std::ios::app };
+
+	out << '\n' << '\n';
+	out << "=========================================" << '\n';
+	out << "저장한 시간 - " << '\n';
+	out << "=========================================" << '\n';
+	out << '\n';
+
+	//std::copy(어디에서, 어디까지를, 어디로);
+	std::copy(std::istreambuf_iterator <char>{in}, {},
+		std::ostream_iterator<char>{out});
+}
+
+
+=========================================
+저장한 시간 - 
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// 컴파일 환경 - Release / x64
+// VS 버전 - 17.14.27
+// 프로젝트 설정 - C++언어표준 - /std:c++latest
+//               - C/C++언어 - SDL검사 - 아니요
+//--------------------------------------------------
+// 한 학기 강의를 자동저장하는 save 함수를 만든다.
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <chrono>
+
+void save(const std::string&);
+
+// 사용하지 말아야 할 자료형 -> 대체할 수단이 존재 -> zero-overhead( 대체하며 얻는 불이익이 없음)
+// 1. char* -> std::string
+// 2. T* -> smart pointer를 사용할 것
+// 3. T[] -> std::array를 사용할 것
+
+int main()
+{
+	std::cout << "2026년 3월 3일" << '\n';
+
+	save("메인.cpp");
+}
+
+// fname - naming convention
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname };		//RAII 자동관리(메모리 등)
+	if (not in) {		//자동관리가 비정상이면
+		std::cout << fname << "- 열 수 없습니다" << '\n';
+		exit( 2026030 );
+	}
+
+	std::cout << "\"" << fname << "\"를 저장합니다" << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56 화78.txt", std::ios::app };
+
+	// 시간 정보를 얻는다
+
+	//std::chrono::system_clock::time_point now = std::chrono::system_clock::now(); // time epoch로 부터 1초마다 증가한 tick 수
+	auto now = std::chrono::system_clock::now();
+
+	std::cout << now << '\n';
+
+	out << '\n' << '\n';
+	out << "=========================================" << '\n';
+	out << "저장한 시간 - " << '\n';
+	out << "=========================================" << '\n';
+	out << '\n';
+
+	//std::copy(어디에서, 어디까지를, 어디로);
+	std::copy(std::istreambuf_iterator <char>{in}, {},
+		std::ostream_iterator<char>{out});
+}
+
+
+=========================================
+저장한 시간 - 2026-03-09 14:20:54.7877322
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// 컴파일 환경 - Release / x64
+// VS 버전 - 17.14.27
+// 프로젝트 설정 - C++언어표준 - /std:c++latest
+//               - C/C++언어 - SDL검사 - 아니요
+//--------------------------------------------------
+// 한 학기 강의를 자동저장하는 save 함수를 만든다.
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <chrono>
+
+
+void save(const std::string&);
+
+// 사용하지 말아야 할 자료형 -> 대체할 수단이 존재 -> zero-overhead( 대체하며 얻는 불이익이 없음)
+// 1. char* -> std::string
+// 2. T* -> smart pointer를 사용할 것
+// 3. T[] -> std::array를 사용할 것
+
+int main()
+{
+	std::cout << "2026년 3월 3일" << '\n';
+
+	save("메인.cpp");
+}
+
+// fname - naming convention
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname };		//RAII 자동관리(메모리 등)
+	if (not in) {		//자동관리가 비정상이면
+		std::cout << fname << "- 열 수 없습니다" << '\n';
+		exit( 2026030 );
+	}
+
+	std::cout << "\"" << fname << "\"를 저장합니다" << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56 화78.txt", std::ios::app };
+
+	// 시간 정보를 얻는다
+
+	//std::chrono::system_clock::time_point now = std::chrono::system_clock::now(); // time epoch로 부터 1초마다 증가한 tick 수
+	auto now = std::chrono::system_clock::now();
+
+	using namespace std::chrono_literals;
+
+	out << '\n' << '\n';
+	out << "=========================================" << '\n';
+	out << "저장한 시간 - " << now + 9h << '\n';
+	out << "=========================================" << '\n';
+	out << '\n';
+
+	//std::copy(어디에서, 어디까지를, 어디로);
+	std::copy(std::istreambuf_iterator <char>{in}, {},
+		std::ostream_iterator<char>{out});
+}
+
+
+=========================================
+저장한 시간 - 2026-03-09 14:47:35.1474102
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// save 파일 분리
+// template
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+//---------
+int main()
+//---------
+{
+	std::cout << "save를 파일로 분리하였다" << '\n';
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-09 15:07:16.1241576
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// save 파일 분리
+// template
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+//---------
+int main()
+//---------
+{
+	std::cout << "main - " << std::addressof(main) << std::endl;
+	std::cout << "save - " << std::addressof(save) << std::endl;
+
+	// [문제] 의도대로 실행되게 하자
+	int a{ 1 }, b{ 2 };
+
+	// 여기에서 change를 호출하였다.
+	// change()
+
+	std::cout << a << ", " << b << std::endl; // 2, 1 이라고 출력되어야 함
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-09 15:07:50.2243161
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// save 파일 분리
+// template
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+//---------
+int main()
+//---------
+{
+	std::cout << "main - " << std::addressof(main) << std::endl;
+	std::cout << "save - " << std::addressof(save) << std::endl;
+
+	// [문제] 의도대로 실행되게 하자
+	int a{ 1 }, b{ 2 };
+
+	std::cout << "save - " << std::addressof(a) << std::endl;
+
+	// 여기에서 change를 호출하였다.
+	// change()
+
+	std::cout << a << ", " << b << std::endl; // 2, 1 이라고 출력되어야 함
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-09 15:07:59.9125693
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// save 파일 분리
+// template
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+	int a{ 1 }, b{ 2 };
+//---------
+int main()
+//---------
+{
+	std::cout << "main - " << std::addressof(main) << std::endl;
+	std::cout << "save - " << std::addressof(save) << std::endl;
+
+	// [문제] 의도대로 실행되게 하자
+
+
+	std::cout << "save - " << std::addressof(a) << std::endl;
+
+	// 여기에서 change를 호출하였다.
+	// change()
+
+	std::cout << a << ", " << b << std::endl; // 2, 1 이라고 출력되어야 함
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-09 15:11:32.9866836
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// save 파일 분리
+// template
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+void change(int*, int*);
+
+void change(int* p, int* q)
+{
+	int temp{ *p };
+	*p = *q;
+	*q = temp;
+}
+
+//---------
+int main()
+//---------
+{
+
+	// [문제] 의도대로 실행되게 하자
+	int a{ 1 }, b{ 2 };
+
+	// 여기에서 change를 호출하였다.
+	change(&a, &b);
+
+	std::cout << a << ", " << b << std::endl; // 2, 1 이라고 출력되어야 함
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-09 15:13:53.8718602
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// save 파일 분리
+// template
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+void change(int&, int&);
+
+void change(int& p, int& q)
+{
+	int temp{ p };
+	p = q;
+	q = temp;
+}
+
+//---------
+int main()
+//---------
+{
+
+	// [문제] 의도대로 실행되게 하자
+	int a{ 1 }, b{ 2 };
+
+	// 여기에서 change를 호출하였다.
+	change(a, b);
+
+	std::cout << a << ", " << b << std::endl; // 2, 1 이라고 출력되어야 함
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-10 16:01:58.8126517
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 9일 (1주 2일)
+//--------------------------------------------------
+// save 파일 분리
+// template
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+class Dog;				// forward declaration
+
+class Dog {
+public:
+	Dog() = default;
+	Dog( int n ) : num{ n } { }
+
+	//이 코드는 사용하지 말자
+	//operator int () {
+	//	return num;
+	//}
+
+private:
+	int num;
+
+	friend std::ostream& operator << (std::ostream& os, const Dog& dog) {
+		return os << dog.num;
+		
+	}
+};
+
+void change(int&, int&);
+void change(Dog&, Dog&);
+
+void change(int& p, int& q)
+{
+	int temp{ p };
+	p = q;
+	q = temp;
+}
+
+void change(Dog& p, Dog& q)
+{
+	Dog temp{ p };
+	p = q;				// p.operator = (q);
+	q = temp;
+}
+
+//---------
+int main()
+//---------
+{
+
+	// [문제] 의도대로 실행되게 하자
+	{
+		//using Dog = int; // #define Dog int 이건 사용하면 안된다
+		// Dog는 class
+		Dog a{ 1 }, b{ 2 };
+		change(a, b);
+		std::cout << a << ", " << b << std::endl; // 2, 1 이라고 출력되어야 함
+	}
+
+	{
+		int a{ 1 }, b{ 2 };
+		change(a, b);
+		std::cout << a << ", " << b << std::endl; // 2, 1 이라고 출력되어야 함
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-10 16:47:47.4385692
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 10일 (2주 1일)
+//--------------------------------------------------
+// template
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+// 템플릿함수 선언과 정의를 분리할 수 없다
+template < class T >
+void change(T& p, T& q)
+{
+	T temp{ p };
+	p = q;
+	q = temp;
+}
+
+//---------
+int main()
+//---------
+{
+	double a, b;
+
+	change(a, b);
+
+	// change("S", "T");
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-10 16:56:12.4549442
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 10일 (2주 1일)
+//--------------------------------------------------
+// template
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// 템플릿함수 선언과 정의를 분리할 수 없다
+template < class T >
+void change(T& p, T& q)
+{
+	T temp{ p };
+	p = q;
+	q = temp;
+}
+
+//---------
+int main()
+//---------
+{
+	double a, b;
+	change(a, b);
+
+	std::string s{ "2026년" }, t{ "3월10일" };
+	change(s, t);
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-10 17:11:54.8054900
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 10일 (2주 1일)
+//--------------------------------------------------
+// template
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+template<class T>
+T add(const T& a, const T& b)
+{
+	return a + b;
+}
+
+//---------
+int main()
+//---------
+{
+	//템플릿 함수 add를 한개 만들어 실행되게 하라.
+	std::cout << add<int>(1, 2) << std::endl;
+	std::cout << add<std::string>(std::string{ "2026년" }, std::string{ "3월 10일" }) << std::endl;
+	//std::cout << add("2026년"s, "3월 10일"s ) << std::endl;
+
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-16 13:38:57.6478674
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid;
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	for (int i = 0; i < 100; i++) {
+		std::cout << uid(dre) << std::endl;
+	}
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-16 13:44:23.0500504
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	for (int i = 0; i < 1000; i++) {
+		std::print( "{:8}", uid(dre));
+	}
+	std::cout << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-16 13:44:35.0344447
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	for (int i = 0; i < 1000; i++) {
+		std::print( "{:<8}", uid(dre));
+	}
+	std::cout << std::endl;
+
+	save("메인.cpp");
+}
+
+
+
+
+
+=========================================
+저장한 시간 - 2026-03-16 14:05:14.2902019
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	int a[1000];
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		std::print("{:8}", num);
+	}
+	std::cout << std::endl;
+
+	// [문제] 가장 큰 값을 찾아 화면에 출력하라.
+
+	int big{ std::numeric_limits<int>::min() };
+	//for (int num : a) {
+	//	big = std::max(big, num);
+	//}
+
+	for(int num : a) {
+		if (num > big) {
+			big = num;
+		}
+	}
+
+	std::cout << big << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-16 14:19:52.0482326
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include <algorithm>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	int a[1000];
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		std::print("{:8}", num);
+	}
+	std::cout << std::endl;
+
+	// [문제] 가장 큰 값을 찾아 화면에 출력하라.
+	
+	int* p = std::max_element(std::begin(a), std::end(a)); //std::max_element( &a[0], &a[1000])
+	std::cout << *p << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-16 14:41:04.8410196
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include <algorithm>
+#include "save.h"
+
+std::default_random_engine dre{ std::random_device{}()};
+std::uniform_int_distribution uid{ 0, 9999};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	int a[1000];
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		std::print("{:8}", num);
+	}
+	std::cout << std::endl;
+
+	// [문제] 가장 큰 값을 찾아 화면에 출력하라.
+	
+	int* p = std::max_element(std::begin(a), std::end(a)); //std::max_element( &a[0], &a[1000])
+	std::cout << *p << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-16 14:42:20.9095578
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include <algorithm>
+#include "save.h"
+
+std::default_random_engine dre{ 2022184004 };
+std::uniform_int_distribution uid{ 0, 9999};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	int a[1000];
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		std::print("{:8}", num);
+	}
+	std::cout << std::endl;
+
+	// [문제] 가장 큰 값을 찾아 화면에 출력하라.
+	
+	int* p = std::max_element(std::begin(a), std::end(a)); //std::max_element( &a[0], &a[1000])
+	std::cout << *p << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-16 14:57:45.9801780
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include <algorithm>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	int a[1000];
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		std::print("{:8}", num);
+	}
+	std::cout << std::endl;
+
+	// [문제] 가장 작은 값과 큰 값을 찾아 화면에 출력하라.
+	
+	std::pair<int*, int* > res = std::minmax_element(std::begin(a), std::end(a));
+	std::cout << "작은 값 - " << *(res.first) << ", 큰 값 - " << *(res.second) << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-16 15:09:15.6998067
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include <algorithm>
+#include <array>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	// int[1000] 이런 자료구조는 앞으로 쓰지 말 것 / 쓸 수 밖에 없는 new int[1000] 제외
+	// 대체할 수 있는 더 좋은 것이 있기 때문 - 시간/공간의 zero-overhead
+	// array<T,N>
+
+	//int a[1000];			// 자료형은 int[N] 인데, 이름위치가 비정상
+
+	std::array<int, 1000> a;
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		std::print("{:8}", num);
+	}
+	std::cout << std::endl;
+
+	// [문제] 가장 작은 값과 큰 값을 찾아 화면에 출력하라.
+	// syntatic sugar 인 structured binding을 사용하면 pair를 이렇게 쓸 수 있다.
+	auto [작은값, 큰값] = std::minmax_element(std::begin(a), std::end(a));
+	std::cout << "작은 값 - " << *작은값 << ", 큰 값 - " << *큰값 << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-16 15:10:39.0328564
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 16일 (2주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include <algorithm>
+#include <array>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤한 값을 갖는 in 1000개를 만들어라.
+	// int[1000] 이런 자료구조는 앞으로 쓰지 말 것 / 쓸 수 밖에 없는 new int[1000] 제외
+	// 대체할 수 있는 더 좋은 것이 있기 때문 - 시간/공간의 zero-overhead
+	// array<T,N>
+
+	//int a[1000];			// 자료형은 int[N] 인데, 이름위치가 비정상
+
+	std::array<int, 1000> a;
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		std::print("{:8}", num);
+	}
+	std::cout << std::endl;
+
+	auto [minPos, maxPos] = std::minmax_element(std::begin(a), std::end(a));
+	std::cout << "작은 값 - " << *minPos << ", 큰 값 - " << *maxPos << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-17 15:26:33.5721790
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 17일 (3주 1일)
+//--------------------------------------------------
+// 다음시간 멤버설명부터
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <print>		// C++23
+#include <algorithm>
+#include <array>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999};
+
+template <class T, int N>
+struct myArray {
+public:
+	size_t size() const {
+		return N;
+	}
+
+	int& operator[](int idx) {
+		return a[idx];
+	}
+
+	T* begin() {
+		return &a[0];
+	}
+
+	T* end() {
+		return &a[N];
+	}
+
+private:
+	T a[N];
+};
+
+//---------
+int main()
+//---------
+{
+	myArray<int, 1000> a;
+
+	for (int i = 0; i < 1000; ++i) {
+		a[i] = uid(dre);
+	}
+
+	//for (int& num : a) {
+	//	num = uid(dre);
+	//}
+
+	for (int num : a) {
+		std::print("{:8}", num);
+	}
+	std::cout << std::endl;
+
+	auto [minPos, maxPos] = std::minmax_element(a.begin(), a.end());
+	std::cout << "작은 값 - " << *minPos << ", 큰 값 - " << *maxPos << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-17 15:52:28.7142824
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 17일 (3주 1일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+//---------
+int main()
+//---------
+{
+	
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-17 16:06:04.1533461
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 17일 (3주 1일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <random>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ std::numeric_limits<int>::min(), std::numeric_limits<int>::max()};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤 int값 천만개를 다음과 같이 "int천만개.txt" 파일에 저장하였다.
+	
+	std::ofstream out{ "int천만개.txt" };
+
+	for (int i = 0; i < 1000'0000; i++) {
+		out << uid(dre) << std::endl;
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-17 16:08:04.7746866
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 17일 (3주 1일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <random>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ std::numeric_limits<int>::min(), std::numeric_limits<int>::max()};
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤 int값 천만개를 다음과 같이 "int천만개.txt" 파일에 저장하였다.
+	
+	std::ofstream out{ "int천만개.txt" };
+
+	for (int i = 0; i < 1000'0000; i++) {		//119828581
+		out << uid(dre) << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-17 17:13:19.8989044
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 17일 (3주 1일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <random>
+#include <algorithm>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ std::numeric_limits<int>::min(), std::numeric_limits<int>::max()};
+
+//---------
+int main()
+//---------
+{
+	// [문제] "int천만개.txt" 파일에는 int값 천만개가 저장되어있다.
+	// 천만개가 있다는 사실은 틀림없다 - 믿고 쓰자.
+	// 가장 작은 값을 찾아 출력하라.
+
+	std::ifstream in{ "int천만개.txt" };
+
+	if (not in) {
+		std::cout << "파일 확인해 보세요" << "std::endl";
+		return 20260317;
+	}
+
+	std::cout << " 최솟값 - " << *std::min_element(std::istream_iterator<int>{in}, {}) << std::endl;
+
+	save("메인.cpp");
+}
+
+
+
+=========================================
+저장한 시간 - 2026-03-23 13:46:21.6051201
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid;
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤 int 값 10000000개를 파일 "int천만개"에 저장하라
+
+	std::ofstream out{ "int천만개" };
+
+	for (int i{}; i < 10000000; ++i) {
+		out << uid(dre) << '\n';
+	}
+
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 13:51:29.1587888
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid;
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤 int 값 10000000개를 파일 "int천만개"에 저장하라
+
+	std::ofstream out{ "int천만개" };
+
+	// 114826203 - text mode
+	//  40000000 - 메모리 그대로 저장한다면 40MB
+
+	int num;
+	for (int i{}; i < 10000000; ++i) {
+		//out << uid(dre) << '\n';
+		num = uid(dre);
+		out.write(reinterpret_cast<char*> (& num), sizeof(int));
+	}
+
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 13:54:33.1182086
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid;
+
+//---------
+int main()
+//---------
+{
+	// [문제] 랜덤 int 값 10000000개를 파일 "int천만개"에 저장하라
+
+	std::ofstream out{ "int천만개", std::ios::binary };
+
+	// 114826203 - text mode
+	//  40000000 - 메모리 그대로 저장한다면 40MB
+
+	int num;
+	for (int i{}; i < 10000000; ++i) {
+		//out << uid(dre) << '\n';
+		num = uid(dre);
+		out.write(reinterpret_cast<char*> (& num), sizeof(int));
+	}
+
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 13:59:04.6307971
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <filesystem> // C++17
+#include "save.h"
+
+
+// [문제] 파일 "int천만개"에는 int값 천만개가 저장되어 있다.
+// 파일은 binary 모드로 열었고 int값은 stream의 write 함수를 사용하여 저장하였다.
+
+//---------
+int main()
+//---------
+{
+	std::cout << std::filesystem::file_size("int천만개")/ sizeof(int) << std::endl;
+
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 14:20:11.3870008
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+
+// [문제] 파일 "int천만개"에는 int값 천만개가 저장되어 있다.
+// 파일은 binary 모드로 열었고 int값은 stream의 write 함수를 사용하여 저장하였다.
+// 저장된 int값을 모두 메모리에 저장하라.
+// 저장된 값 중에서 가장 작은 값과 큰 값을 화면에 출력하라.
+
+// contiguous memory 공간 / continuous 시간
+
+std::array<int, 10000000> a;
+
+//---------
+int main()
+//---------
+{
+	std::ifstream in{ "int천만개", std::ios::binary };
+	if (not in) {
+				std::cout << "파일을 열 수 없습니다" << '\n';
+				return 20260323;
+	}
+	
+	in.read((char*)(a.data()), a.size() * sizeof(int));
+	auto [min_it, max_it] = std::minmax_element(a.begin(), a.end());
+	std::cout << "최소값 - " << *min_it << ", 최대값 - " << *max_it << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 14:34:17.1193594
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+
+// [문제] 파일 "int천만개"에는 int값 천만개가 저장되어 있다.
+// 파일은 binary 모드로 열었고 int값은 stream의 write 함수를 사용하여 저장하였다.
+// 저장된 int값을 모두 메모리에 저장하라.
+// 저장된 값 중에서 가장 작은 값과 큰 값을 화면에 출력하라.
+
+// contiguous memory 공간 / continuous 시간
+// File I/O 
+// Mode는 text, binary
+// I/O 는 고수준 <<,>> /저수준 read, write
+//1:1 관계가 아니라 2:2 관계로 4가지의 경우가 존재
+
+std::array<int, 10000000> a;
+
+//---------
+int main()
+//---------
+{
+	std::ifstream in{ "int천만개", std::ios::binary };
+	if (not in) {
+				std::cout << "파일을 열 수 없습니다" << '\n';
+				return 20260323;
+	}
+	
+	in.read((char*)(a.data()), a.size() * sizeof(int));
+	auto [min_it, max_it] = std::minmax_element(a.begin(), a.end());
+	std::cout << "최소값 - " << *min_it << ", 최대값 - " << *max_it << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 14:47:28.2526768
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <random>
+#include <print>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999 };
+std::uniform_int_distribution uidNameLen{ 10, 30 };
+std::uniform_int_distribution<int> uidChar{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	}
+private:
+	std::string name;	// [10, 30] / [a, b] a에서 b까지 , [a, b) - a에서 b미만
+	size_t id;			// [0, 9999]
+
+	friend std::ostream& operator << (std::ostream& os, const Dog& dog) {
+		std::print(os, "[{:4}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+//---------
+int main()
+//---------
+{
+	Dog dog;
+
+	std::cout << dog << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 14:48:43.8031042
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <random>
+#include <print>
+#include <array>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999 };
+std::uniform_int_distribution uidNameLen{ 10, 30 };
+std::uniform_int_distribution<int> uidChar{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	}
+private:
+	std::string name;	// [10, 30] / [a, b] a에서 b까지 , [a, b) - a에서 b미만
+	size_t id;			// [0, 9999]
+
+	friend std::ostream& operator << (std::ostream& os, const Dog& dog) {
+		std::print(os, "[{:4}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+//---------
+int main()
+//---------
+{
+	std::array<Dog, 1000> dogs;
+
+	for (Dog dog : dogs)
+		std::cout << dog << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 14:54:30.9672421
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <random>
+#include <print>
+#include <array>
+#include <fstream>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999 };
+std::uniform_int_distribution uidNameLen{ 10, 30 };
+std::uniform_int_distribution<int> uidChar{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	}
+private:
+	std::string name;	// [10, 30] / [a, b] a에서 b까지 , [a, b) - a에서 b미만
+	size_t id;			// [0, 9999]
+
+	friend std::ostream& operator << (std::ostream& os, const Dog& dog) {
+		std::print(os, "[{:4}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+//---------
+int main()
+//---------
+{
+	std::array<Dog, 1000> dogs;
+
+	std::ofstream out{ "Dog천마리", std::ios::binary };
+	out.write((char*)dogs.data(), dogs.size() * sizeof(Dog));
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 15:02:57.4782914
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include "save.h"
+
+class Dog {
+private:
+	std::string name;	// [10, 30] / [a, b] a에서 b까지 , [a, b) - a에서 b미만
+	size_t id;			// [0, 9999]
+
+	friend std::ostream& operator << (std::ostream& os, const Dog& dog) {
+		std::print(os, "[{:4}] - {}", dog.id, dog.name);
+		return os;
+	}
+
+	friend std::istream& operator >> (std::istream& is, Dog& dog) {
+		is.read((char*)&dog, sizeof(Dog));
+		return is;
+	}
+
+};
+
+// [문제] 파일 "Dog천마리"에는 class Dog 객체 1000개가 저장되어 있다.
+// 파일은 binary mode이고 각 개체는 메모리 크기 그대로 stream의 write 함수로 기록하였다.
+// 모든 객체를 한번의 write 함수를 사용하여 기록하였다.
+// Dog의 멤버는 위의 코드와 같다.
+// 메모리에 모두 읽어 와라.
+
+//---------
+int main()
+//---------
+{
+
+	std::ifstream in{ "Dog천마리", std::ios::binary };
+	if (not in) {
+		std::cout << "Dog 없음" << '\n';
+		return 20260323;
+	}
+
+	Dog dog;
+	in >> dog;
+	std::cout << dog << std::endl;
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-03-23 15:04:31.9073459
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 23일 (3주 2일)
+//--------------------------------------------------
+// 많은 수의 자료를 다루기 - FILE I/O -binary I/O
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include "save.h"
+
+class Dog {
+private:
+	std::string name;	// [10, 30] / [a, b] a에서 b까지 , [a, b) - a에서 b미만
+	size_t id;			// [0, 9999]
+
+	friend std::ostream& operator << (std::ostream& os, const Dog& dog) {
+		std::print(os, "[{:4}] - {}", dog.id, dog.name);
+		return os;
+	}
+
+	friend std::istream& operator >> (std::istream& is, Dog& dog) {
+		is.read((char*)&dog, sizeof(Dog));
+		return is;
+	}
+
+};
+
+// [문제] 파일 "Dog천마리"에는 class Dog 객체 1000개가 저장되어 있다.
+// 파일은 binary mode이고 각 개체는 메모리 크기 그대로 stream의 write 함수로 기록하였다.
+// 모든 객체를 한번의 write 함수를 사용하여 기록하였다.
+// Dog의 멤버는 위의 코드와 같다.
+// 메모리에 모두 읽어 와라.
+
+//---------
+int main()
+//---------
+{
+
+	std::ifstream in{ "Dog천마리", std::ios::binary };
+	if (not in) {
+		std::cout << "Dog 없음" << '\n';
+		return 20260323;
+	}
+
+	Dog dog;
+	size_t cnt{};
+	while (in >> dog) {
+		++cnt;
+	}
+	std::cout << "저장된 Dog 개수 - " << cnt << std::endl;
+
+	save("메인.cpp");
+}
+
+
+
+=========================================
+저장한 시간 - 2026-03-24 16:52:35.6145473
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 24일 (4주 1일)
+//--------------------------------------------------
+// 동적 메모리 할당(Dynamic memory allocation)
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+// Memory Allocation
+// 정적(static) - Program 할 때 사용할 메모리를 결정 - compile-time
+// 동적(dynamic) - Program 실행한 이후에 결정할 수 있는 메모리 - run-time
+
+// 낮은주소
+// -----
+// STACK
+// -----
+//					수십 GB단위 사용 가능
+// free-store		메모리를 요청하면 메모리관리자가 그 크기의 메모리의 시작번지를 리턴하고 사용하다 다쓰면 반납
+//					메모리가 가득차면 메모리관리자가 페이징을 통해 구해보고 그래도 없으면 예뢰를 리턴
+// -----
+// DATA
+// -----
+// CODE
+// -----
+// 높은주소
+
+// [문제] 사용자가 입력한 수만큼 int를 저장할 메모리를 확보하라.
+// 1부터 시작하는 정수로 메모리를 채워라.
+// 합계를 화면 출력하라.
+
+//---------
+int main()
+//---------
+{
+	save("메인.cpp");
+	
+	while (true) {
+		std::cout << "int 몇 개가 필요한가요? ";
+		size_t num;
+		std::cin >> num;
+
+		// 설마 음수를 입력하지는 않으리라는 강력한 희망을!!
+
+		int* p;
+
+		try {
+			p = new int[num];		// 메모리 확보를 요청하고 기다림 - 루프에 넣으면 안됨
+		}
+		catch (std::exception& e) {
+			std::cout << "메모리 고갈" << e.what() << std::endl;
+		}
+
+		for (int i = 0; i < num; ++i) {
+			p[i] = i + 1;
+		}
+
+		long long sum{};
+		for (int i = 0; i < num; ++i) {
+			sum += p[i];
+		}
+
+		std::cout << "1부터 " << num << "까지의 합계 - " << sum << std::endl;
+	}
+	
+}
+
+
+=========================================
+저장한 시간 - 2026-03-24 16:54:36.1958099
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 24일 (4주 1일)
+//--------------------------------------------------
+// 동적 메모리 할당(Dynamic memory allocation)
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+// Memory Allocation
+// 정적(static) - Program 할 때 사용할 메모리를 결정 - compile-time
+// 동적(dynamic) - Program 실행한 이후에 결정할 수 있는 메모리 - run-time
+
+// 낮은주소
+// -----
+// STACK
+// -----
+//					수십 GB단위 사용 가능
+// free-store		메모리를 요청하면 메모리관리자가 그 크기의 메모리의 시작번지를 리턴하고 사용하다 다쓰면 반납
+//					메모리가 가득차면 메모리관리자가 페이징을 통해 구해보고 그래도 없으면 예뢰를 리턴
+// -----
+// DATA
+// -----
+// CODE
+// -----
+// 높은주소
+
+// [문제] 사용자가 입력한 수만큼 int를 저장할 메모리를 확보하라.
+// 1부터 시작하는 정수로 메모리를 채워라.
+// 합계를 화면 출력하라.
+
+//---------
+int main()
+//---------
+{
+	save("메인.cpp");
+	
+	while (true) {
+		std::cout << "int 몇 개가 필요한가요? ";
+		size_t num;
+		std::cin >> num;
+
+		// 설마 음수를 입력하지는 않으리라는 강력한 희망을!!
+
+		int* p;
+
+		try {
+			p = new int[num];		// 메모리 확보를 요청하고 기다림 - 루프에 넣으면 안됨
+		}
+		catch (std::exception& e) {
+			std::cout << "메모리 고갈" << e.what() << std::endl;
+		}
+
+		for (int i = 0; i < num; ++i) {
+			p[i] = i + 1;
+		}
+
+		long long sum{};
+		for (int i = 0; i < num; ++i) {
+			sum += p[i];
+		}
+
+		std::cout << "1부터 " << num << "까지의 합계 - " << sum << std::endl;
+
+		delete[] p;
+	}
+	
+}
+
+
+=========================================
+저장한 시간 - 2026-03-24 17:06:31.5169781
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 24일 (4주 1일)
+//--------------------------------------------------
+// 동적 메모리 할당(Dynamic memory allocation)
+//--------------------------------------------------
+#include <iostream>
+#include <numeric>
+#include "save.h"
+
+// Memory Allocation
+// 정적(static) - Program 할 때 사용할 메모리를 결정 - compile-time
+// 동적(dynamic) - Program 실행한 이후에 결정할 수 있는 메모리 - run-time
+
+// 낮은주소
+// -----
+// STACK
+// -----
+//					수십 GB단위 사용 가능
+// free-store		메모리를 요청하면 메모리관리자가 그 크기의 메모리의 시작번지를 리턴하고 사용하다 다쓰면 반납
+//					메모리가 가득차면 메모리관리자가 페이징을 통해 구해보고 그래도 없으면 예뢰를 리턴
+// -----
+// DATA
+// -----
+// CODE
+// -----
+// 높은주소
+
+// [문제] 사용자가 입력한 수만큼 int를 저장할 메모리를 확보하라.
+// 1부터 시작하는 정수로 메모리를 채워라.
+// 합계를 화면 출력하라.
+
+//---------
+int main()
+//---------
+{
+	save("메인.cpp");
+	
+	while (true) {
+		std::cout << "int 몇 개가 필요한가요? ";
+		size_t num;
+		std::cin >> num;
+
+		// 설마 음수를 입력하지는 않으리라는 강력한 희망을!!
+
+		int* p;
+
+		try {
+			p = new int[num];		// 메모리 확보를 요청하고 기다림 - 루프에 넣으면 안됨
+		}
+		catch (std::exception& e) {
+			std::cout << "메모리 고갈" << e.what() << std::endl;
+		}
+
+		//for (int i = 0; i < num; ++i) {
+		//	p[i] = i + 1;
+		//}
+		std::iota(p, p + num, 1);		// 이렇게 해야하는 이유는 위의 코드와 달리 틀릴 곳이 없음
+
+		//long long sum{};
+		//for (int i = 0; i < num; ++i) {
+		//	sum += p[i];
+		//}
+		long long sum = std::accumulate(p, p + num, 0);		// accumulate가 범위가 long long으로 받지를 못함
+
+		std::cout << "1부터 " << num << "까지의 합계 - " << sum << std::endl;
+
+		delete[] p;
+	}
+	
+}
+
+
+=========================================
+저장한 시간 - 2026-03-24 17:09:20.0006405
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 24일 (4주 1일)
+//--------------------------------------------------
+// 동적 메모리 할당(Dynamic memory allocation)
+//--------------------------------------------------
+#include <iostream>
+#include <numeric>
+#include "save.h"
+
+// Memory Allocation
+// 정적(static) - Program 할 때 사용할 메모리를 결정 - compile-time
+// 동적(dynamic) - Program 실행한 이후에 결정할 수 있는 메모리 - run-time
+
+// 낮은주소
+// -----
+// STACK
+// -----
+//					수십 GB단위 사용 가능
+// free-store		메모리를 요청하면 메모리관리자가 그 크기의 메모리의 시작번지를 리턴하고 사용하다 다쓰면 반납
+//					메모리가 가득차면 메모리관리자가 페이징을 통해 구해보고 그래도 없으면 예뢰를 리턴
+// -----
+// DATA
+// -----
+// CODE
+// -----
+// 높은주소
+
+// [문제] 사용자가 입력한 수만큼 int를 저장할 메모리를 확보하라.
+// 1부터 시작하는 정수로 메모리를 채워라.
+// 합계를 화면 출력하라.
+
+//---------
+int main()
+//---------
+{
+	save("메인.cpp");
+	
+	while (true) {
+		std::cout << "int 몇 개가 필요한가요? ";
+		size_t num;
+		std::cin >> num;
+
+		// 설마 음수를 입력하지는 않으리라는 강력한 희망을!!
+
+		int* p;
+
+		try {
+			p = new int[num];		// 메모리 확보를 요청하고 기다림 - 루프에 넣으면 안됨
+		}
+		catch (std::exception& e) {
+			std::cout << "메모리 고갈" << e.what() << std::endl;
+		}
+
+		//for (int i = 0; i < num; ++i) {
+		//	p[i] = i + 1;
+		//}
+		std::iota(p, p + num, 1);		// 이렇게 해야하는 이유는 위의 코드와 달리 틀릴 곳이 없음
+
+		//long long sum{};
+		//for (int i = 0; i < num; ++i) {
+		//	sum += p[i];
+		//}
+		long long sum = std::accumulate(p, p + num, static_cast<long long>(0));		// 이렇게 해야하는 이유는 위의 코드와 달리 틀릴 곳이 없음
+
+		std::cout << "1부터 " << num << "까지의 합계 - " << sum << std::endl;
+
+		delete[] p;
+	}
+	
+}
+
+
+=========================================
+저장한 시간 - 2026-03-30 13:37:41.5919630
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 30일 (4주 2일)
+//--------------------------------------------------
+// 스마트 포인터 -> 콜러블 타입 -> 실습 -> STL
+//--------------------------------------------------
+#include <iostream>
+#include <numeric>
+#include <memory>
+#include "save.h"
+
+// Memory Allocation
+// 정적(static) - Program 할 때 사용할 메모리를 결정 - compile-time
+// 동적(dynamic) - Program 실행한 이후에 결정할 수 있는 메모리 - run-time
+
+// 낮은주소
+// -----
+// STACK
+// -----
+//					수십 GB단위 사용 가능
+// free-store		메모리를 요청하면 메모리관리자가 그 크기의 메모리의 시작번지를 리턴하고 사용하다 다쓰면 반납
+//					메모리가 가득차면 메모리관리자가 페이징을 통해 구해보고 그래도 없으면 예뢰를 리턴
+// -----
+// DATA
+// -----
+// CODE
+// -----
+// 높은주소
+
+// [문제] 사용자가 입력한 수만큼 int를 저장할 메모리를 확보하라.
+// 1부터 시작하는 정수로 메모리를 채워라.
+// 합계를 화면 출력하라.
+
+//---------
+int main()
+//---------
+{
+	save("메인.cpp");
+	
+	std::unique_ptr<int[]> p;
+
+	while (true) {
+		std::cout << "int 몇 개가 필요한가요? ";
+		size_t num;
+		std::cin >> num;
+
+		// 설마 음수를 입력하지는 않으리라는 강력한 희망을!!
+
+		// int* p; - 사용하지 말아야 함
+		// C++11(Modern C++)에 이것의 완벽한 대체수단이 있기 때문에 -> smart_pointer
+
+		try {
+			p.reset( new int[num]);		// 메모리 확보를 요청하고 기다림 - 루프에 넣으면 안됨
+		}
+		catch (std::exception& e) {
+			std::cout << "메모리 고갈" << e.what() << std::endl;
+		}
+
+		//for (int i = 0; i < num; ++i) {
+		//	p[i] = i + 1;
+		//}
+		std::iota(p.get(), p.get() + num, 1);		// 이렇게 해야하는 이유는 위의 코드와 달리 틀릴 곳이 없음
+
+		//long long sum{};
+		//for (int i = 0; i < num; ++i) {
+		//	sum += p[i];
+		//}
+		long long sum = std::accumulate(p.get(), p.get() + num, static_cast<long long>(0));		// 이렇게 해야하는 이유는 위의 코드와 달리 틀릴 곳이 없음
+
+		std::cout << "1부터 " << num << "까지의 합계 - " << sum << std::endl;
+
+		//delete[] p;
+	}
+	
+}
+
+
+=========================================
+저장한 시간 - 2026-03-30 13:46:35.8209265
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 30일 (4주 2일)
+//--------------------------------------------------
+// 스마트 포인터 -> 콜러블 타입 -> 실습 -> STL
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+
+
+//---------
+int main()
+//---------
+{
+
+	save("메인.cpp");
+	
+	int* p;
+	
+	p = new int;
+
+	delete p;
+	delete p;		// delete는 한번만, 두번 이상하면 프로그램 사망
+
+	std::cout << " 이 문장을 절대 출력되지 않음. " << std::endl;
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-30 13:55:52.5799835
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 30일 (4주 2일)
+//--------------------------------------------------
+// 스마트 포인터 -> 콜러블 타입 -> 실습 -> STL
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+// C++ 언어의 보증사항
+// 프로그램이 정상 종료시(return 문 / exit과는 다름) 스택에 생성된 지역객체를
+// 반드시 소멸됨을 보증한다. 
+
+class Dog {
+public:
+	Dog() { std::cout << "생성" << std::endl; }
+	~Dog() { std::cout << "소멸" << std::endl; }
+};
+
+//---------
+int main()
+//---------
+{
+
+	save("메인.cpp");
+
+	Dog* p = new Dog;
+
+	return 0;		//leakage, 고갈
+
+	delete p;
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-30 13:59:44.0636472
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 30일 (4주 2일)
+//--------------------------------------------------
+// 스마트 포인터 -> 콜러블 타입 -> 실습 -> STL
+//--------------------------------------------------
+#include <iostream>
+#include <memory>
+#include "save.h"
+
+// C++ 언어의 보증사항
+// 프로그램이 정상 종료시(return 문 / exit과는 다름) 스택에 생성된 지역객체를
+// 반드시 소멸됨을 보증한다. 
+
+class Dog {
+public:
+	Dog() { std::cout << "생성" << std::endl; }
+	~Dog() { std::cout << "소멸" << std::endl; }
+};
+
+//---------
+int main()
+//---------
+{
+
+	save("메인.cpp");
+
+	// T* 는 raw-pointer이다. 앞으로 쓰지 말자
+
+	std::unique_ptr<Dog> p{ new Dog };		//RAII
+
+	return 0;
+
+	std::cout << "이 문장이 출력되면 노트북을 버려라" << std::endl;
+}
+
+
+=========================================
+저장한 시간 - 2026-03-30 14:07:23.4069726
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 30일 (4주 2일)
+//--------------------------------------------------
+// 스마트 포인터 -> 콜러블 타입 -> 실습 -> STL
+//--------------------------------------------------
+#include <iostream>
+#include <memory>
+#include "save.h"
+
+// C++ 언어의 보증사항
+// 프로그램이 정상 종료시(return 문 / exit과는 다름) 스택에 생성된 지역객체를
+// 반드시 소멸됨을 보증한다. 
+//stack-unwinding
+
+class Dog {
+public:
+	Dog() { std::cout << "생성" << std::endl; }
+	~Dog() { std::cout << "소멸" << std::endl; }
+};
+
+class 스마트포인터 {
+public:
+	스마트포인터(Dog* p) : p{ p } {}
+	~스마트포인터() {
+		delete p;
+	}
+private:
+	Dog* p;
+};
+
+//---------
+int main()
+//---------
+{
+
+	save("메인.cpp");
+
+	// T* 는 raw-pointer이다. 앞으로 쓰지 말자
+
+	스마트포인터 p{ new Dog };
+
+	return 0;
+
+	std::cout << "이 문장이 출력되면 노트북을 버려라" << std::endl;
+}
+
+
+=========================================
+저장한 시간 - 2026-03-30 14:14:59.1964529
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 30일 (4주 2일)
+//--------------------------------------------------
+// 스마트 포인터 -> 콜러블 타입 -> 실습 -> STL
+//--------------------------------------------------
+#include <iostream>
+#include <memory>
+#include "save.h"
+
+// C++ 언어의 보증사항
+// 프로그램이 정상 종료시(return 문 / exit과는 다름) 스택에 생성된 지역객체를
+// 반드시 소멸됨을 보증한다. 
+//stack-unwinding
+
+class Dog {
+public:
+	Dog() { std::cout << "생성" << std::endl; }
+	~Dog() { std::cout << "소멸" << std::endl; }
+};
+
+class 스마트포인터 {
+public:
+	스마트포인터(Dog* p) : p{ p } {}
+	~스마트포인터() {
+		delete[] p;
+	}
+private:
+	Dog* p;
+};
+
+//---------
+int main()
+//---------
+{
+	std::unique_ptr<Dog> p{ new Dog{} };
+
+	save("메인.cpp");
+	
+}
+
+
+=========================================
+저장한 시간 - 2026-03-30 14:48:09.6591948
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 30일 (4주 2일)
+//--------------------------------------------------
+// 콜러블 타입 -> 실습 -> STL
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "메인.cpp"의 소문자를 모두 대문자로 바꾼 "메인대문자.cpp"를 만들어라.
+//transform(뭐를, 뭐로, 어떻게);
+
+char 소투대( char c )
+{
+	return c = std::toupper(c);
+}
+
+//---------
+int main()
+//---------
+{
+	std::ifstream in{ "메인.cpp" };
+	if (not in) {
+		return 20260330;
+	}
+
+	std::ofstream out{ "메인대문자.cpp" };
+
+	//transform( 메인시작, 메인끝, 메인대문자시작으로, 함수의시작번지 )
+	transform( std::istreambuf_iterator<char>{in}, {}, std::ostreambuf_iterator<char>{out},
+		소투대);
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-30 14:51:37.1449858
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 30일 (4주 2일)
+//--------------------------------------------------
+// 콜러블 타입 -> 실습 -> STL
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "메인.cpp"의 소문자를 모두 대문자로 바꾼 "메인대문자.cpp"를 만들어라.
+//transform(뭐를, 뭐로, 어떻게);
+
+//---------
+int main()
+//---------
+{
+	std::ifstream in{ "메인.cpp" };
+	if (not in) {
+		return 20260330;
+	}
+
+	std::ofstream out{ "메인대문자.cpp" };
+
+	//transform( 메인시작, 메인끝, 메인대문자시작으로, 함수의시작번지 )
+	transform( std::istreambuf_iterator<char>{in}, {}, std::ostreambuf_iterator<char>{out},
+		[] (char c) { 
+			return c = toupper(c);
+		} );
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-30 15:20:56.8933151
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 30일 (4주 2일)
+//--------------------------------------------------
+// 콜러블 타입 -> 실습 -> STL
+//--------------------------------------------------
+#include <iostream>
+#include <print>
+#include <random>
+#include <array>
+#include <ranges>
+#include "save.h"
+
+// [문제] 랜덤값을 갖는 int 1000만개를 메모리에 저장하라.
+// qsort를 이용하여 오름차순 정렬하라.
+// 정렬결과를 앞에서부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999999 };
+
+std::array<int, 10000000> a;
+
+int 오름차순( const void* a, const void* b )
+{
+	return *(int*)a - *(int*)b;
+}
+
+//---------
+int main()
+//---------
+{
+
+    for (int& num : a)
+        num = uid(dre);
+
+    // 시간측정시작
+    qsort(a.data(), a.size(), sizeof(std::array<int, 10000000>::value_type), 오름차순);
+	// 시간측정끝
+
+	std::cout << "정렬 후 출력" << std::endl;
+	for (int num : a | std::views::take(1000))     // | 추가 가능 | ciews::reverse () -> 역순으로 출력
+        std::print("{:8}", num);
+    std::cout << std::endl;
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-31 15:41:59.8662694
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <chrono>
+#include "save.h"
+
+// [문제] 랜덤값을 갖는 int 1000만개를 메모리에 저장하라.
+// qsort를 이용하여 오름차순 정렬하라.
+// 정렬결과를 앞에서부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999999 };
+
+std::array<int, 10000000> a;
+
+int 오름차순( const void* a, const void* b )
+{
+	return *(int*)a - *(int*)b;
+}
+
+//---------
+int main()
+//---------
+{
+
+    for (int& num : a)
+        num = uid(dre);
+
+    // 시간측정시작
+	auto start = std::chrono::high_resolution_clock::now();
+    qsort(a.data(), a.size(), sizeof(int), 오름차순);
+	auto stop = std::chrono::high_resolution_clock::now();
+	// 시간측정끝
+
+	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+	std::cout << "걸린시간 - " << duration << std::endl;
+
+	save("메인.cpp");
+
+}
+
+
+
+
+=========================================
+저장한 시간 - 2026-03-31 16:09:43.4013445
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <chrono>
+#include <algorithm>
+#include "save.h"
+
+// [문제] 랜덤값을 갖는 int 1000만개를 메모리에 저장하라.
+// qsort를 이용하여 오름차순 정렬하라.
+// 정렬결과를 앞에서부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999999 };
+
+std::array<int, 10000000> a;
+
+
+
+int 오름차순( const void* a, const void* b )
+{
+	return *(int*)a - *(int*)b;
+}
+
+bool sort용오름차순( int a, int b )
+{
+	return a < b;
+}
+
+//---------
+int main()
+//---------
+{
+	{
+		for (int& num : a)
+			num = uid(dre);
+
+		// 시간측정시작
+		auto start = std::chrono::high_resolution_clock::now();
+		qsort(a.data(), a.size(), sizeof(int), 오름차순);
+		auto stop = std::chrono::high_resolution_clock::now();
+		// 시간측정끝
+
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+		std::cout << "qsort 시간 - " << duration << std::endl;
+	}
+
+	{
+		for (int& num : a)
+			num = uid(dre);
+
+		// 시간측정시작
+		auto start = std::chrono::high_resolution_clock::now();
+		std::sort(a.begin(), a.end(), sort용오름차순 );
+		auto stop = std::chrono::high_resolution_clock::now();
+		// 시간측정끝
+
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+		std::cout << "sort 시간 - " << duration << std::endl;
+	}
+
+	save("메인.cpp");
+
+}
+
+
+
+
+=========================================
+저장한 시간 - 2026-03-31 16:19:39.4122829
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <chrono>
+#include <algorithm>
+#include "save.h"
+
+// [문제] 랜덤값을 갖는 int 1000만개를 메모리에 저장하라.
+// qsort를 이용하여 오름차순 정렬하라.
+// 정렬결과를 앞에서부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999999 };
+
+std::array<int, 10000000> a;
+
+
+
+int 오름차순( const void* a, const void* b )
+{
+	return *(int*)a - *(int*)b;
+}
+
+bool sort용오름차순( int a, int b )
+{
+	return a < b;
+}
+
+//---------
+int main()
+//---------
+{
+	{
+		for (int& num : a)
+			num = uid(dre);
+
+		// 시간측정시작
+		auto start = std::chrono::high_resolution_clock::now();
+		qsort(a.data(), a.size(), sizeof(int), 오름차순);
+		auto stop = std::chrono::high_resolution_clock::now();
+		// 시간측정끝
+
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+		std::cout << "qsort 시간 - " << duration << std::endl;
+	}
+
+	{
+		for (int& num : a)
+			num = uid(dre);
+
+		// 시간측정시작
+		auto start = std::chrono::high_resolution_clock::now();
+		std::sort(a.begin(), a.end(), [](int a, int b) {
+			return a < b;
+			});
+		auto stop = std::chrono::high_resolution_clock::now();
+		// 시간측정끝
+
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+		std::cout << "sort 시간 - " << duration << std::endl;
+	}
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-31 16:56:08.2813441
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// 1 함수
+//		- 함수 포인터도 호출가능하다
+// 2 lambda
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+
+void f() {
+	std::cout << "난 호출가능해요." << std::endl;
+}
+
+//---------
+int main()
+//---------
+{
+	
+	int n;	// addressof, sizeof, typeid 
+
+	std::cout << std::addressof( f ) << std::endl;
+	std::cout << typeid(f).name() << std::endl;
+
+	void (*a)() = f; // a는 함수 f를 가리키는 포인터
+
+	a();	// a를 통해 f를 호출
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-31 17:00:34.9079681
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// 1 함수
+//		- 함수 포인터도 호출가능하다
+// 2 lambda
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+void 점프()
+{
+	std::cout << "점프" << std::endl;
+}
+
+void 슬라이드()
+{
+	std::cout << "슬라이드" << std::endl;
+}
+
+//---------
+int main()
+//---------
+{
+	
+	void(*왼쪽키)() = 점프;
+
+	왼쪽키();
+	왼쪽키();
+	// 설정에서 키 기능 변경
+	왼쪽키 = 슬라이드;
+
+	왼쪽키();
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-31 17:03:55.1709260
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// 1 함수
+//		- 함수 포인터도 호출가능하다
+// 2 lambda
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+void 점프()
+{
+	std::cout << "점프" << std::endl;
+}
+
+//---------
+int main()
+//---------
+{
+	
+	(*점프)();
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-31 17:05:52.9830496
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// 1 함수
+//		- 함수 포인터도 호출가능하다
+// 2 lambda
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+
+
+//---------
+int main()
+//---------
+{
+	
+	[]() {	// lambda
+		std::cout << "안녕 난 람다야 반가워" << std::endl;
+		}(); 	// 호출을 위해서 뒤에() 붙이기 없으면 그냥 람다식이 될 뿐이다. 
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-31 17:08:27.2910727
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// 1 함수
+//		- 함수 포인터도 호출가능하다
+// 2 lambda
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+
+
+//---------
+int main()
+//---------
+{
+	
+	std::cout << typeid([]() {	// lambda
+		std::cout << "안녕 난 람다야 반가워" << std::endl;
+		}).name() << std::endl;
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-31 17:14:12.6802907
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// 1 함수
+//		- 함수 포인터도 호출가능하다
+// 2 lambda
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+
+
+//---------
+int main()
+//---------
+{
+	
+	class Sakura {
+	public:
+		void operator()() {
+			std::cout << "안녕 난 람다야 반가워" << std::endl;
+			};
+	};
+
+	Sakura a;
+	a();
+
+	std::cout << typeid(a).name() << std::endl;
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-03-31 17:15:33.6526575
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 3월 31일 (5주 1일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// 1 함수
+//		- 함수 포인터도 호출가능하다
+// 2 lambda
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+class Sakura {
+public:
+	void operator()() {
+		std::cout << "안녕 난 람다야 반가워" << std::endl;
+	};
+};
+
+//---------
+int main()
+//---------
+{
+	
+	Sakura a;
+	a();
+
+	std::cout << typeid(a).name() << std::endl;
+
+	save("메인.cpp");
+
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 13:34:24.1003786
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// function을 사용하여 모든 호출가능 타입을 표현할 수 있다
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+//--------
+int main()
+//--------
+{
+	std::array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
+
+	std::sort(a.begin(), a.end());
+	// contiguos 메모리의 정보가 들어가있음. 각각의 원소가 int가 들어가 있음, 메모리 크기 등을 다 알 수 있음
+	// 아무것도 안쓰면 오름차순으로 정렬이 됨.
+
+	for (int num : a) {
+		std::cout << num << ' ';
+	}
+	std::cout << '\n';
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 13:37:17.1030789
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// function을 사용하여 모든 호출가능 타입을 표현할 수 있다
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+bool 정렬기준(int a, int b)
+{
+	std::cout << "함수 ";		// 10 * log 10 (3 ~ 4)
+	return a < b;
+}	
+
+//--------
+int main()
+//--------
+{
+	std::array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
+
+	std::sort(a.begin(), a.end(), 정렬기준);
+	// contiguos 메모리의 정보가 들어가있음. 각각의 원소가 int가 들어가 있음, 메모리 크기 등을 다 알 수 있음
+	// 아무것도 안쓰면 오름차순으로 정렬이 됨.
+
+	for (int num : a) {
+		std::cout << num << ' ';
+	}
+	std::cout << '\n';
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 13:38:25.5647069
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// function을 사용하여 모든 호출가능 타입을 표현할 수 있다
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+bool 정렬기준(int a, int b)
+{
+	std::cout << "함수 ";		// 10 * log 10 (3 ~ 4)
+	return a < b;
+}	
+
+//--------
+int main()
+//--------
+{
+	std::array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
+
+	//std::sort(a.begin(), a.end(), 정렬기준);
+	std::sort(a.begin(), a.end(), [] (int a, int b) {		// 람다
+		std::cout << "람다 ";	// 10 * log 10 (3 ~ 4)
+		return a < b;
+		});
+	// contiguos 메모리의 정보가 들어가있음. 각각의 원소가 int가 들어가 있음, 메모리 크기 등을 다 알 수 있음
+	// 아무것도 안쓰면 오름차순으로 정렬이 됨.
+
+	for (int num : a) {
+		std::cout << num << ' ';
+	}
+	std::cout << '\n';
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 13:38:44.3361612
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// function을 사용하여 모든 호출가능 타입을 표현할 수 있다
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+bool 정렬기준(int a, int b)
+{
+	std::cout << "함수 ";		// 10 * log 10 (3 ~ 4)
+	return a < b;
+}	
+
+//--------
+int main()
+//--------
+{
+	std::array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
+
+	//std::sort(a.begin(), a.end(), 정렬기준);
+	std::sort(a.begin(), a.end(), [] (int a, int b) {		// 람다
+		std::cout << "람다 ";	// 10 * log 10 (3 ~ 4)
+		return a < b;
+		});
+	std::cout << '\n';
+	
+	for (int num : a) {
+		std::cout << num << ' ';
+	}
+	std::cout << '\n';
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 13:40:52.3327147
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// function을 사용하여 모든 호출가능 타입을 표현할 수 있다
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+bool 정렬기준(int a, int b)
+{
+	std::cout << "함수 ";		// 10 * log 10 (3 ~ 4)
+	return a < b;
+}	
+
+class Dog {
+public:
+	bool operator() (int a, int b) {
+		std::cout << "도그 ";
+		return a < b;
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	std::array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
+
+	//std::sort(a.begin(), a.end(), 정렬기준);
+	//std::sort(a.begin(), a.end(), [] (int a, int b) {		// 람다
+	//	std::cout << "람다 ";	// 10 * log 10 (3 ~ 4)
+	//	return a < b;
+	//	});
+
+	std::sort(a.begin(), a.end(), Dog{} );
+
+	std::cout << '\n';
+	
+	for (int num : a) {
+		std::cout << num << ' ';
+	}
+	std::cout << '\n';
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 13:50:02.3955428
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// function을 사용하여 모든 호출가능 타입을 표현할 수 있다
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+bool 정렬기준(int a, int b)
+{
+	std::cout << "함수 ";		// 10 * log 10 (3 ~ 4)
+	return a < b;
+}
+
+class Dog {						// function object. 함수 객체. 호출가능 객체. callable object.
+public:
+	bool operator() (int a, int b) {
+		std::cout << "도그 ";
+		return a < b;
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	std::array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
+
+	//std::sort(a.begin(), a.end(), 정렬기준);
+
+	std::sort(a.begin(), a.end(), [](int a, int b) -> bool {		// 람다. [] -> lambda introducer.
+		std::cout << "람다 ";	// 10 * log 10 (3 ~ 4)
+		return a < b;			// 람다함수는 return하는 값이 무슨 형태인지 추론해서 반환한다.
+	});
+
+	//std::sort(a.begin(), a.end(), Dog{} );
+
+	std::cout << '\n';
+
+	for (int num : a) {
+		std::cout << num << ' ';
+	}
+	std::cout << '\n';
+
+	save("메인.cpp");
+}
+
+//std::sort<Random Iterator>(a.begin(), a.end(), callable f)
+//{
+//	f(*a.begin(), *a.begin() + 1);
+//}
+
+=========================================
+저장한 시간 - 2026-04-06 13:52:50.2054784
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 호출가능 타입 - callable types
+// function을 사용하여 모든 호출가능 타입을 표현할 수 있다
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include <functional>
+#include "save.h"
+
+bool 정렬기준(int a, int b)
+{
+	std::cout << "함수 ";		// 10 * log 10 (3 ~ 4)
+	return a < b;
+}
+
+class Dog {						// function object. 함수 객체. 호출가능 객체. callable object.
+public:
+	bool operator() (int a, int b) {
+		std::cout << "도그 ";
+		return a < b;
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	std::array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
+
+	std::function<bool(int, int) > f;
+
+	f = 정렬기준;
+	f = [](int a, int b) -> bool {		// 람다. [] -> lambda introducer.
+		std::cout << "람다 ";	// 10 * log 10 (3 ~ 4)
+		return a < b;			// 람다함수는 return하는 값이 무슨 형태인지 추론해서 반환한다.
+		};
+	f = Dog{};
+	
+	//std::sort(a.begin(), a.end(), 정렬기준);
+
+	std::sort(a.begin(), a.end(), f);
+
+	//std::sort(a.begin(), a.end(), Dog{} );
+
+	std::cout << '\n';
+
+	for (int num : a) {
+		std::cout << num << ' ';
+	}
+	std::cout << '\n';
+
+	save("메인.cpp");
+}
+
+//std::sort<Random Iterator>(a.begin(), a.end(), callable f)
+//{
+//	f(*a.begin(), *a.begin() + 1);
+//}
+
+=========================================
+저장한 시간 - 2026-04-06 14:13:53.5072072
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	for (int i = 0; i < 10; ++i) {
+		std::cout << Dog{} << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:19:39.0859375
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::sort(dogs.begin(), dogs.end(), Dog{});
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:20:07.9358981
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::sort(dogs.begin(), dogs.end(), Dog{});
+
+	for( Dog d : dogs | std::views::take(1000) ) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:28:18.0591032
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.name < b.name;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::sort(dogs.begin(), dogs.end(), Dog{});
+
+	for( Dog d : dogs | std::views::take(1000) ) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:28:53.3038930
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.name < b.name;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::sort(dogs.begin(), dogs.end(), Dog{});
+
+	for( Dog d : dogs | std::views::take(1000) 
+		| std::views::reverse) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:29:06.4317129
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.name < b.name;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::sort(dogs.begin(), dogs.end(), Dog{});
+
+	for( Dog d : dogs | std::views::take(10000) 
+		| std::views::reverse) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:29:19.0090179
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.name < b.name;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::sort(dogs.begin(), dogs.end(), Dog{});
+
+	for( Dog d : dogs | std::views::take(1000) ) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:38:42.2531142
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.name < b.name;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+std::array<int, 10> a;
+
+//--------
+int main()
+//--------
+{
+	/*std::sort(dogs.begin(), dogs.end(), Dog{});
+
+	for( Dog d : dogs | std::views::take(1000) ) {
+		std::cout << d << '\n';
+	}*/
+
+	for (int num : a) {
+		std::cout << num << std::endl;
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:38:47.4715824
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.name < b.name;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+
+//--------
+int main()
+//--------
+{
+	/*std::sort(dogs.begin(), dogs.end(), Dog{});
+
+	for( Dog d : dogs | std::views::take(1000) ) {
+		std::cout << d << '\n';
+	}*/
+	std::array<int, 10> a;
+
+	for (int num : a) {
+		std::cout << num << std::endl;
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:45:55.7416356
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::sort(dogs.begin(), dogs.end(), Dog{});
+
+	for( Dog d : dogs | std::views::take(1000) ) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:48:01.5195639
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::cout << "정렬 시작" << std::endl;
+	std::sort(dogs.begin(), dogs.end(), [](Dog a, Dog b) {
+		return a.getId() < b.getId();
+		});
+	std::cout << "정렬 끝" << std::endl;
+
+	for (Dog d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:49:44.0614572
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 1000'0000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::cout << "정렬 시작" << std::endl;
+	std::sort(dogs.begin(), dogs.end(), [](Dog a, Dog b) {
+		return a.getId() < b.getId();
+		});
+	std::cout << "정렬 끝" << std::endl;
+
+	for (Dog d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:50:45.3125377
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 1000'0000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::cout << "정렬 시작" << std::endl;
+	std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});
+	std::cout << "정렬 끝" << std::endl;
+
+	for (Dog d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:51:21.6018860
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::cout << "정렬 시작" << std::endl;
+	std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});
+	std::cout << "정렬 끝" << std::endl;
+
+	for (const Dog& d : dogs) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:51:48.8707876
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		//print(os, "[{:7}] - {}", dog.id, dog.name);
+		print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::cout << "정렬 시작" << std::endl;
+	std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});
+	std::cout << "정렬 끝" << std::endl;
+
+	for (const Dog& d : dogs) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:53:10.4130412
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		//print(os, "[{:7}] - {}", dog.id, dog.name);
+		print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::cout << "정렬 시작" << std::endl;
+	std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});
+	std::cout << "정렬 끝" << std::endl;
+
+	for (const Dog& d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:53:54.4051016
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		//print(os, "[{:7}] - {}", dog.id, dog.name);
+		print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::cout << "정렬 시작" << std::endl;
+	std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});
+	std::cout << "정렬 끝" << std::endl;
+
+	for (const Dog& d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 14:59:14.0151828
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+	std::string getName() const { return name; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 name 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+
+	// C++20의 sort
+	//std::ranges::sort(dogs, {}, &Dog::getId);
+	// 무슨 객체를, 어떤 기준으로 정렬할건데 (디폴트는 오름차순), 멤버함수를 기준으로 정렬한다.
+	// 멤버함수는 포인터가 아님. 멤버함수 포인터가 콜러블임.
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});*/
+
+	std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getName() < b.getName();
+		});
+
+	for (const Dog& d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 15:00:16.4080255
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+	int getNameLen() const { return name.length(); }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 name 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+
+	// C++20의 sort
+	//std::ranges::sort(dogs, {}, &Dog::getId);
+	// 무슨 객체를, 어떤 기준으로 정렬할건데 (디폴트는 오름차순), 멤버함수를 기준으로 정렬한다.
+	// 멤버함수는 포인터가 아님. 멤버함수 포인터가 콜러블임.
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});*/
+
+	std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getNameLen() < b.getNameLen();
+		});
+
+	for (const Dog& d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 15:03:08.9513534
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+	std::string getName() const { return name; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 name 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+
+	// C++20의 sort
+	//std::ranges::sort(dogs, {}, &Dog::getId);
+	// 무슨 객체를, 어떤 기준으로 정렬할건데 (디폴트는 오름차순), 멤버함수를 기준으로 정렬한다.
+	// 멤버함수는 포인터가 아님. 멤버함수 포인터가 콜러블임.
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});*/
+
+	std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getName().size() < b.getName().size();
+		});
+
+	for (const Dog& d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 15:04:22.3973464
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+	std::string getName() const { return name; }
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// std::sort를 사용하여 name 기준 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+
+	// C++20의 sort
+	//std::ranges::sort(dogs, {}, &Dog::getId);
+	// 무슨 객체를, 어떤 기준으로 정렬할건데 (디폴트는 오름차순), 멤버함수를 기준으로 정렬한다.
+	// 멤버함수는 포인터가 아님. 멤버함수 포인터가 콜러블임.
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});*/
+
+	std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getName().size() < b.getName().size();
+		});
+
+	for (const Dog& d : dogs /*| std::views::take(1000)*/) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 15:13:11.8328867
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+
+	std::string getName() const { return name; }
+
+	std::string& getName() { // 함수 오버로딩. std::string getName() const 와 std::string& getName() 은 다른 함수로 맹글링한다.
+		return name;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// 각 Dog 객체의 이름을 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+
+	// C++20의 sort
+	//std::ranges::sort(dogs, {}, &Dog::getId);
+	// 무슨 객체를, 어떤 기준으로 정렬할건데 (디폴트는 오름차순), 멤버함수를 기준으로 정렬한다.
+	// 멤버함수는 포인터가 아님. 멤버함수 포인터가 콜러블임.
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});*/
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getName().size() < b.getName().size();
+		});*/
+
+	for(Dog dog : dogs) {
+		std::string& name = dog.getName();
+		std::sort(dog.getName().begin(), dog.getName().end());
+	}
+	
+
+	for (const Dog& d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 15:13:46.1872681
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+
+	std::string getName() const { return name; }
+
+	std::string& getName() { // 함수 오버로딩. std::string getName() const 와 std::string& getName() 은 다른 함수로 맹글링한다.
+		return name;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// 각 Dog 객체의 이름을 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+
+	// C++20의 sort
+	//std::ranges::sort(dogs, {}, &Dog::getId);
+	// 무슨 객체를, 어떤 기준으로 정렬할건데 (디폴트는 오름차순), 멤버함수를 기준으로 정렬한다.
+	// 멤버함수는 포인터가 아님. 멤버함수 포인터가 콜러블임.
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});*/
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getName().size() < b.getName().size();
+		});*/
+
+	for(Dog dog : dogs) {
+		std::string& name = dog.getName();
+		std::sort(name.begin(), name.end());
+	}
+	
+
+	for (const Dog& d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 15:14:33.9274887
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 150 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+
+	std::string getName() const { return name; }
+
+	std::string& getName() { // 함수 오버로딩. std::string getName() const 와 std::string& getName() 은 다른 함수로 맹글링한다.
+		return name;
+	}
+private:
+	std::string name;		// [1, 150]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리에 저장하라.
+// 각 Dog 객체의 이름을 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+
+	// C++20의 sort
+	//std::ranges::sort(dogs, {}, &Dog::getId);
+	// 무슨 객체를, 어떤 기준으로 정렬할건데 (디폴트는 오름차순), 멤버함수를 기준으로 정렬한다.
+	// 멤버함수는 포인터가 아님. 멤버함수 포인터가 콜러블임.
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getId() < b.getId();
+		});*/
+
+	/*std::sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getName().size() < b.getName().size();
+		});*/
+
+	for(Dog& dog : dogs) {
+		std::string& name = dog.getName();
+		std::sort(name.begin(), name.end());
+	}
+	
+
+	for (const Dog& d : dogs | std::views::take(1000)) {
+		std::cout << d << '\n';
+	}
+
+	save("메인.cpp");
+}
+
+
+=========================================
+저장한 시간 - 2026-04-06 15:17:52.2137862
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 6일 (5주 2일)
+//--------------------------------------------------
+// 예제
+//--------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <print>
+#include <array>
+#include <ranges>
+#include <chrono>
+#include <fstream>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 999'9999 };
+std::uniform_int_distribution uidNameLen{ 1, 16 };
+std::uniform_int_distribution<> uidChar{ '!', '~' };
+
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	};
+	bool operator() (Dog a, Dog b) const {
+		return a.id < b.id;
+	}
+
+	int getId() const { return id; }
+
+	std::string getName() const { return name; }
+
+	std::string& getName() { // 함수 오버로딩. std::string getName() const 와 std::string& getName() 은 다른 함수로 맹글링한다.
+		return name;
+	}
+private:
+	std::string name;		// [1, 16]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 기말쯤에 a~z까지 모두 들어간 Dog가 있니?? 몇개나 있니?? 나올수도
+
+// [문제] Dog 객체 10만개를 메모리(std::array)에 저장하라.
+// 각 Dog 객체의 이름을 오름차순으로 정렬하라.
+// 필요하다면 Dog에 interfacce 멤버를 추가하라.
+// 앞에서부터 1000개의 내용을 출력하라.
+
+std::array <Dog, 100'000> dogs;
+
+//--------
+int main()
+//--------
+{
+	std::ofstream out{ "Dog 십만마리", std::ios::binary };
+	out.write((char*)dogs.data(), dogs.size() * sizeof(Dog));
+
+	save("메인.cpp");
+}
+
+=========================================
+저장한 시간 - 2026-04-07 16:24:20.7736357
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 7일 (6주 1일)
+//--------------------------------------------------
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <fstream>
+#include "save.h"
+
+class Dog {
+
+private:
+	std::string name;		// [1, 16]
+	int id;					// [0, 999'9999]
+
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}]", dog.id);
+		return os;
+	}
+};
+
+// 시험문제
+// [문제] 다운받은 "Dog 십만마리"에는 class Dog 객체 십만개가 저장되어 있다.
+// 바이너리 모드로 저장하여 정확하게 4MB이다.
+// 메모리로 모두 읽어와라.
+// 앞에서 100개 출력하여 확인하라.
+
+std::array<Dog, 10'0000> dogs;
+
+//--------
+int main()
+//--------
+{
+
+	save("메인.cpp");		// 사망 이유는 16글자가 넘고 바이너리로 저장하면 메모리 주소값만 넘어오고 글자는 못오기 때문
+							// 고로 문제부터 잘못되어 있고, name의 글자 수를 [1,15] 로 바꿔야 한다.
+	std::ifstream in{ "Dog 십만마리", std::ios::binary };
+	if (not in) {
+		std::cout << "파일을 살펴보세요" << std::endl;
+		return 20260407;
+	}
+
+	in.read((char*)dogs.data(), dogs.size() * sizeof(Dog));
+
+	for (int i = 0; i < 100; ++i) 
+		std::cout << dogs[i] << std::endl;
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-07 16:41:06.7811946
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 7일 (6주 1일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+//--------
+int main()
+//--------
+{
+	std::string s{ "2026" };
+	s += "0407";
+	std::cout << s << std::endl;
+
+	for (auto i (s.begin()); i < s.end(); ++i)
+		std::cout << *i << std::endl;
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-07 16:41:56.1952999
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 7일 (6주 1일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+//--------
+int main()
+//--------
+{
+	std::string s{ "2026" };
+	s += "0407";
+	std::cout << s << std::endl;
+
+	for (auto i (s.rbegin()); i < s.rend(); ++i)
+		std::cout << *i << std::endl;
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-07 16:55:58.3602493
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 7일 (6주 1일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include <memory>
+#include "save.h"
+
+class ZString {
+public:
+	ZString() = default;
+	ZString(const char* s) {
+		len = strlen(s);
+		p = std::make_unique<char[]>(len);
+		memcpy(p.get(), s, len);
+	}
+
+	friend std::ostream& operator<<(std::ostream& os, const ZString& zs) {
+		for(int i = 0; i<zs.len; ++i)
+			os << *(zs.p.get() + i);
+		return os;
+	}
+
+private:
+	size_t len{};
+	std::unique_ptr<char[]> p{};
+};
+
+//--------
+int main()
+//--------
+{
+	ZString s{ "2026" };
+	std::cout << s << std::endl;
+
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-07 17:00:11.6786732
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 7일 (6주 1일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include <memory>
+#include "save.h"
+
+class ZString {
+public:
+	ZString() = default;
+	ZString(const char* s) {
+		len = strlen(s);
+		p = std::make_unique<char[]>(len);
+		memcpy(p.get(), s, len);
+
+		std::cout << "생성(cahr*) 글자수: " << len << " 객체주소: " << this << " 글자주소: " << (void*)p.get() << std::endl;
+	}
+
+	friend std::ostream& operator<<(std::ostream& os, const ZString& zs) {
+		for(int i = 0; i<zs.len; ++i)
+			os << *(zs.p.get() + i);
+		return os;
+	}
+
+private:
+	size_t len{};
+	std::unique_ptr<char[]> p{};
+};
+
+//--------
+int main()
+//--------
+{
+	ZString s{ "2026" };
+	std::cout << s << std::endl;
+
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 13:12:07.8073920
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 7일 (6주 1일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include <memory>
+#include "save.h"
+
+class ZString {
+public:
+	ZString() {
+		std::cout << "생성(char*) 글자 수: " << len << " 객체주소: " << this << " 글자주소: " << (void*)p.get() << std::endl;
+	};
+	ZString(const char* s) {
+		len = strlen(s);
+		p = std::make_unique<char[]>(len);
+		memcpy(p.get(), s, len);
+
+		std::cout << "생성(cahr*) 글자 수: " << len << " 객체주소: " << this << " 글자주소: " << (void*)p.get() << std::endl;
+	}
+
+	friend std::ostream& operator<<(std::ostream& os, const ZString& zs) {
+		for(int i = 0; i<zs.len; ++i)
+			os << *(zs.p.get() + i);
+		return os;
+	}
+
+private:
+	size_t len{};
+	std::unique_ptr<char[]> p{};
+};
+
+//--------
+int main()
+//--------
+{
+	ZString{};
+	ZString s{ "2026" };
+	std::cout << s << std::endl;
+
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 13:13:53.3894762
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 7일 (6주 1일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include <string>
+#include <memory>
+#include "save.h"
+
+class ZString {
+public:
+	ZString() {
+		std::cout << "생성(char*) 글자 수: " << len << " 객체주소: " << this << " 글자주소: " << (void*)p.get() << std::endl;
+	};
+	ZString(const char* s) {
+		len = strlen(s);
+		p = std::make_unique<char[]>(len);
+		memcpy(p.get(), s, len);
+
+		std::cout << "생성(cahr*) 글자 수: " << len << " 객체주소: " << this << " 글자주소: " << (void*)p.get() << std::endl;
+	}
+
+	friend std::ostream& operator<<(std::ostream& os, const ZString& zs) {
+		for(int i = 0; i<zs.len; ++i)
+			os << *(zs.p.get() + i);
+		return os;
+	}
+
+private:
+	size_t len{};
+	std::unique_ptr<char[]> p{};
+};
+
+//--------
+int main()
+//--------
+{
+	std::string s{ "2026년" };
+	std::string t = move(s);
+
+	std::cout << "s - " << s << std::endl;
+	std::cout << "t - " << t << std::endl;
+
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 13:49:17.7261176
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 13일 (6주 2일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+#include "ZString.h"
+
+
+
+//--------
+int main()
+//--------
+{
+	ZString zs{ "2026년 4월 13일" };
+
+	std::cout << zs << std::endl;
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 14:05:34.1231172
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 13일 (6주 2일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;
+
+//--------
+int main()
+//--------
+{
+	관찰 = true;
+
+	ZString zs[5];
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 14:16:36.5977882
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 13일 (6주 2일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;
+
+//--------
+int main()
+//--------
+{
+	관찰 = true;
+
+	ZString zs[5] {"333", "1", "55555", "4444", "22"};
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 14:39:44.5496003
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 13일 (6주 2일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;
+
+//--------
+int main()
+//--------
+{
+	관찰 = true;
+
+	//array<ZString, 5> zs {"333", "1", "55555", "4444", "22"};
+
+	ZString a{ "2026년 4월 13일" };
+	ZString b = a;		// 복사생성
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 14:40:42.7847081
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 13일 (6주 2일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;
+
+//--------
+int main()
+//--------
+{
+	std::array<ZString, 5> zs {"333", "1", "55555", "4444", "22"};
+
+	관찰 = true;
+	for(ZString& a : zs)
+		std::cout << a << std::endl;
+	관찰 = false;
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 14:55:21.9762031
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 13일 (6주 2일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;
+
+//--------
+int main()
+//--------
+{
+	std::array<ZString, 5> zs {"333", "1", "55555", "4444", "22"};
+
+	// [문제] zs를 길이 오름차순으로 정렬하라. - C++11 이전 code
+	관찰 = true;
+	std::sort(zs.begin(), zs.end(), [](const ZString a, const ZString b) {
+		return a.getLen() < b.getLen();
+		});
+	관찰 = false;
+
+	for ( const ZString& s : zs)
+		std::cout << s << std::endl;
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 15:10:23.7989857
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 13일 (6주 2일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;
+
+//--------
+int main()
+//--------
+{
+	std::array<ZString, 5> zs {"333", "1", "55555", "4444", "22"};
+
+	// [문제] zs를 길이 오름차순으로 정렬하라. - C++11 이전 code
+	관찰 = true;
+	std::sort(zs.begin(), zs.end(), [](const ZString a, const ZString b) {
+		return a.getLen() < b.getLen();
+		});
+	관찰 = false;
+
+	for ( const ZString& s : zs)
+		std::cout << s << std::endl;
+
+	save("메인.cpp");
+	
+}
+
+=========================================
+저장한 시간 - 2026-04-13 15:15:23.7989857
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 13일 (6주 2일)
+// 중간고사 4월 21일 (8주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - std::string과 유사한 ZString을 만들어서 컨테이너 본질에 접근
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include "ZString.h"
+#include "save.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	// [문제] "메인.cpp"에 있는 모든 단어를 ZString 객체로 읽어와라.
+	// 이 문제에서 단어란 공백으로 구분된
+	// 다음 문장이 문제없이 실행되도록 하자.
+
+	std::ifstream in{ "메인.cpp" };
+
+	if (not in) {
+		std::cout << "파일 없음" << std::endl;
+		return 20260413;
+	}
+
+	ZString s;
+	while (in >> s) {
+		std::cout << s << std::endl;
+	}
+
+	save("메인.cpp");
+
+}
