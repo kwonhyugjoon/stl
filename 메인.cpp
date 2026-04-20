@@ -1,58 +1,53 @@
 //--------------------------------------------------
-// 2026 1학기 STL 월56 화78 4월 14일 (7주 1일)
+// 2026 1학기 STL 월56 화78 4월 20일 (7주 2일)
 // 중간고사 4월 21일 (8주 1일)
 //--------------------------------------------------
-// 컨테이너는 다른 객체를 저장하는 객체다. ( 컨테이너 == 오브젝트. 컨테이너는 오브젝트다. )
-// 컨테이너도 객체니까 다른 컨테이너를 저장할 수 있다.
-// homogeneous data type -> 같은 데이터 타입만 담을 수 있다.
-// heterogeneous data type -> 컨테이너는 여러개의 다른 데이터 타입을 한 번에 담지는 않는다.
-// 
 // STL 컨테이너 - Containers are objects that store other objects.
-// object란? class로 만든 객체 (instancing) -> 메모리를 차지하고 있는 실체. 메모리에 없으면 오브젝트라고 부르지 않는다.
-// class로 객체를 만드는 행위 -> instancing / object는 클래스로 만들어진 instance
-// 
-// 다형성 - polymorphic.
-// 컨테이너는 homogeneous data type만 담을 수 있다.
-// 다형성을 구현하기 위해서는 부모 자식 클래스 내에 virtual을 이용한 함수를 작성하게 될것.
-// 이를 한번에 담아서 다형성을 구동하게 하기 위해서는
-// 부모 클래스의 포인터를 컨테이너에 담아 사용한다.
-// 
-// STL 자료구조 - 컨테이너. 공부 순서
-// 1. sequence container - array, vector, deque, forward_list (single-linked), list (double-linked)
-// 내가 원하는 위치에 가서 원하는 값으로 맘대로 바꿔도 아무 문제 없는 컨테이너다. (내 멋대로 메모리 엑세스 가능)
-//  
-// 이후에 iterator 반복자 학습하고 넘어간다.	
-//
-// 2. associative container
-// 빠르게 찾으라고 기껏 정렬해뒀더니 내 멋대로 바꿔버리면 정렬이 깨지니까 
-// 내가 원하는 위치에 가서 원하는 값으로 맘대로 바꿀 수 없는 컨테이너다. ( 내 멋대로 메모리 엑세스 불가능 )
-//
-// 3. unordered associative container
-// 
-// 이후 algorithm
-// 
-// lexicographically compares - 사전식으로 비교한다는 뜻. 사전에서 단어들이 정렬되는 방식으로 비교한다는 뜻.
-// 
-// operator<=> - 삼방향 비교 연산자. ZString에서 제공하도록 코딩할 예정
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
 //--------------------------------------------------
 #include <iostream>
-#include <array>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <numeric>
 #include "save.h"
 #include "ZString.h"
 
-extern bool 관찰;
+extern bool 관찰;			// 관찰하려면 true
 
+// template< class T, class Allocator = std::allocator<T> > class vector;
+// vector는 bool을 제외하면 contiguous하게 저장된다.
+// 시작번지 + offset을 계산해서 element에 접근할 수 있다.
+// element를 가르키는 포인터를 함수의 인자로도 쓸 수 있다. (배열의 원소를 필요로하는 곳에	vector의 원소를 포인터로 전달할 수 있다.)
+// 필요에 따라서 메모리가 늘어난다. 그래서 컴파일 타임에 공간이 정해지는 array보다 공간이 더 필요하다.
+// 미리 확보한 메모리가 다 차면 dynamic하게 메모리가 확장(expanded)된다. 
+// 재할당은 비용이 굉장히 많이 들어가는 동작이기 때문에 reserve()를 활용해서 미리 공간을 확보해주면 좋다.
+// Random access -> constant O(1)
+// 
+// 끝에있는 원소에 추가하거나 지우거나 -> amorized(평균) constant 0(1) == 평균내면 상수시간이다.
+// 공간이 여유가 있는 경우엔 상수시간 O(1)의 시간이 걸린다.
+// 하지만 공간의 여유가 없을 땐 메모리를 확보하고 데이터를 복사하는 과정이 필요하기 때문에 O(n)의 시간이 걸린다.
+// 
+// 중간에 추가하거나 지우거나 -> linear O(n)
+// 그러니까 벡터는 위에 두개만 써서 사용하는거야.
+// 핵심 함수는 push_back과 emplace_back
+//
 
 //--------
 int main()
 //--------
 {
-
-	std::array<ZString, 5> a{ "1", "22", "333", "4444", "55555" };
-
-	// 아쉽지만 다음시간에
-	// iterator로 a를 순회
-	// element access - at, operator[], front, back, data. 다섯가지 멤버함수 살펴보기
-
 	save("메인.cpp");
+
+	// [문제] 키보드에서 입력한 모든 정수의 합계를 출력하라.
+
+	/*std::vector<int> v{ std::istream_iterator<int>{std::cin}, {} };
+	long long sum = std::accumulate(v.begin(), v.end(), 0LL);		iterator이기 때문에 벡터안에 써놓은거 그대로 가져와도 댐
+	std::cout << "합계: " << sum << '\n';*/
+
+	long long sum = std::accumulate(std::istream_iterator<int>{std::cin}, {}, 0LL);
+	std::cout << "합계: " << sum << '\n';
+
 }

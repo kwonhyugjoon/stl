@@ -18,15 +18,20 @@ public:
 	ZString& operator=(const ZString&);
 
 	// 이동 - C++11부터 지원되는 move semantics
-	ZString(ZString&&);
-	ZString& operator=(ZString&&);
+	ZString(ZString&&) noexcept; // r-value reference를 인자로 받는 이동 생성자 // 2026. 4. 20 move에서 예외를 던지지 않는다. noexcept
+	ZString& operator=(ZString&&) noexcept; // r-value reference를 인자로 받는 이동 할당 연산자 // 2026. 4. 20 move에서 예외를 던지지 않는다. noexcept
 
 	// 연산자오버로딩
 	
-	// 인터페이스
+	// 인터페이스 - 나중에 삭제 예정
 	size_t getLen() const;
 
+	// STL 컨테이너가 되려면 다음 함수정도는 제공해야 - 2026. 4.20
+	size_t size() const;		// 표준 컨테이너라면 getLen대신 size가 합당하다.
+
 	void special(std::string) const;
+
+	void show() const;		// 2026. 4. 20
 
 	friend std::ostream& operator<<(std::ostream& os, const ZString& zs);
 
