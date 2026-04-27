@@ -1,6 +1,5 @@
 //--------------------------------------------------
-// 2026 1학기 STL 월56 화78 4월 20일 (7주 2일)
-// 중간고사 4월 21일 (8주 1일)
+// 2026 1학기 STL 월56 화78 4월 27일 (8주 2일)
 //--------------------------------------------------
 // STL 컨테이너 - Containers are objects that store other objects.
 // Sequence Container
@@ -9,31 +8,11 @@
 //--------------------------------------------------
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
-#include <numeric>
 #include "save.h"
 #include "ZString.h"
 
 extern bool 관찰;			// 관찰하려면 true
-
-// template< class T, class Allocator = std::allocator<T> > class vector;
-// vector는 bool을 제외하면 contiguous하게 저장된다.
-// 시작번지 + offset을 계산해서 element에 접근할 수 있다.
-// element를 가르키는 포인터를 함수의 인자로도 쓸 수 있다. (배열의 원소를 필요로하는 곳에	vector의 원소를 포인터로 전달할 수 있다.)
-// 필요에 따라서 메모리가 늘어난다. 그래서 컴파일 타임에 공간이 정해지는 array보다 공간이 더 필요하다.
-// 미리 확보한 메모리가 다 차면 dynamic하게 메모리가 확장(expanded)된다. 
-// 재할당은 비용이 굉장히 많이 들어가는 동작이기 때문에 reserve()를 활용해서 미리 공간을 확보해주면 좋다.
-// Random access -> constant O(1)
-// 
-// 끝에있는 원소에 추가하거나 지우거나 -> amorized(평균) constant 0(1) == 평균내면 상수시간이다.
-// 공간이 여유가 있는 경우엔 상수시간 O(1)의 시간이 걸린다.
-// 하지만 공간의 여유가 없을 땐 메모리를 확보하고 데이터를 복사하는 과정이 필요하기 때문에 O(n)의 시간이 걸린다.
-// 
-// 중간에 추가하거나 지우거나 -> linear O(n)
-// 그러니까 벡터는 위에 두개만 써서 사용하는거야.
-// 핵심 함수는 push_back과 emplace_back
-//
 
 //--------
 int main()
@@ -41,13 +20,11 @@ int main()
 {
 	save("메인.cpp");
 
-	// [문제] 키보드에서 입력한 모든 정수의 합계를 출력하라.
+	std::vector<int> v{ 1, 2, 3, 4, 5 };
 
-	/*std::vector<int> v{ std::istream_iterator<int>{std::cin}, {} };
-	long long sum = std::accumulate(v.begin(), v.end(), 0LL);		iterator이기 때문에 벡터안에 써놓은거 그대로 가져와도 댐
-	std::cout << "합계: " << sum << '\n';*/
+	// [문제] v에서 3을 제거하라. v.size() == 4, 원소{1, 2, 4, 5}, v.capacity() == 5
+	// 원소제거는 std::remove()를 이용하면 된다.
 
-	long long sum = std::accumulate(std::istream_iterator<int>{std::cin}, {}, 0LL);
-	std::cout << "합계: " << sum << '\n';
+	std::remove(v.begin(), v.end(), 3); // {1,2, 4, 5, 5}
 
 }

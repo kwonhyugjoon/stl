@@ -7304,3 +7304,309 @@ int main()
 	std::cout << "합계: " << sum << '\n';
 }
 
+=========================================
+저장한 시간 - 2026-04-27 13:37:29.6124431
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 27일 (8주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	관찰 = true;
+	std::vector<ZString> v{ "1", "22", "333", "4444", "55555" };
+	관찰 = false;
+
+	std::cout << std::endl;
+	std::cout << "v의 원소에 접근" << std::endl;
+	관찰 = true;
+	for (ZString zs : v)
+		std::cout << zs << std::endl;
+	관찰 = false;
+}
+
+=========================================
+저장한 시간 - 2026-04-27 13:38:52.6109220
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 27일 (8주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	관찰 = true;
+	std::vector<ZString> v{ "1", "22", "333", "4444", "55555" };
+	관찰 = false;
+
+	std::cout << std::endl;
+	std::cout << "v의 원소에 접근" << std::endl;
+	관찰 = true;
+	for (ZString& zs : v)		// 원본을 사용해야 효율적
+		std::cout << zs << std::endl;
+	관찰 = false;
+}
+
+=========================================
+저장한 시간 - 2026-04-27 14:12:12.7476335
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 27일 (8주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<ZString> v{ "1", "22", "333" };
+
+	관찰 = true;
+	v.push_back("4444");
+
+	v.reserve(5);
+	v.push_back("55555");
+	관찰 = false;
+	
+	// 동작을 관찰해 보면 push_back()이 호출될 때마다 이사가 일어나는 것을 알 수 있다.
+	// push_back()를 여러번 호출하면 계속해서 이사를 해야하므로 비효율적이다. reserve()로 미리 공간을 확보해두면 상대적으로 효율적이다.
+
+	std::cout << std::endl;
+	std::cout << "v의 원소에 접근" << std::endl;
+	for (const ZString& zs : v)		// 원본을 사용해야 효율적
+		std::cout << zs << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-04-27 14:17:59.9597600
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 27일 (8주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<ZString> v{ "1", "22", "333" };
+
+	관찰 = true;
+	v.reserve(5);
+	v.emplace_back("4444");
+	v.emplace_back( );
+	관찰 = false;
+	
+	// 동작을 관찰해 보면 push_back()이 호출될 때마다 이사가 일어나는 것을 알 수 있다.
+	// push_back()를 여러번 호출하면 계속해서 이사를 해야하므로 비효율적이다. reserve()로 미리 공간을 확보해두면 상대적으로 효율적이다.
+	// emplace_back()는 push_back()과 달리 임시객체를 만들 필요가 없음, 불필요한 복사나 이동이 발생하지 않아 효율적이다.
+	// emplace_back( ZString("4444") ); 처럼 사용하면 임시객체가 만들어지므로 push_back()과 마찬가지로 비효율적이다.
+
+	std::cout << std::endl;
+	std::cout << "v의 원소에 접근" << std::endl;
+	for (const ZString& zs : v)		// 원본을 사용해야 효율적
+		std::cout << zs << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-04-27 14:23:53.5517664
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 27일 (8주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 벡터가 메모리를 확장하는 순간을 관찰
+	std::vector<int> v;
+
+	while (true) {
+		v.push_back(1);		// 1을 계속 추가
+
+		if (v.size() == v.capacity()) {
+			std::cout << "원소 개수 - " << v.size() << std::endl;
+			std::cout << "확보한 개수 - " << v.capacity() << std::endl;
+			std::cout << std::endl;			// 1.5배로 점차 증가
+		}
+	}
+}
+
+=========================================
+저장한 시간 - 2026-04-27 14:28:33.7870311
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 27일 (8주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 벡터가 메모리를 확장하는 순간을 관찰
+	std::vector<int> v;
+
+	while (true) {
+		try {
+			v.push_back(1);		// 1을 계속 추가
+		}
+		catch (std::exception& e) {
+			std::cout << "예외 발생 - " << e.what() << std::endl;
+			std::cout << "현재 원소 개수 - " << v.size() << std::endl;
+			std::cout << "현재 용량 - " << v.capacity() << std::endl;
+		}
+	}
+}
+
+=========================================
+저장한 시간 - 2026-04-27 14:59:30.2747798
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 27일 (8주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// [문제] "메인.cpp"에 알파벳 소문자가 몇 개나 있는지 다음과 같이 출력하라.
+	// a - 10
+	// b - 5
+	// 중간생략
+	// z - 1
+
+	std::array<size_t, 26> counts{};	// std::vector<int> counts(26, 0); vector는 가변에 용의함으로 이번 상황에선 array가 적합
+	std::fstream in{ "메인.cpp" };
+	if (not in) {
+		std::cout << "파일을 열 수 없습니다." << std::endl;
+		return 20260427;
+	}
+	char c;
+	while (in >>c ) {
+		if (std::islower(c)) {
+			counts[c - 'a']++;
+		}
+	}
+	for( size_t i = 0; i < counts.size(); ++i) {
+		std::cout << static_cast<char>('a' + i) << " - " << counts[i] << '\n';
+	}
+}
