@@ -7610,3 +7610,302 @@ int main()
 		std::cout << static_cast<char>('a' + i) << " - " << counts[i] << '\n';
 	}
 }
+
+=========================================
+저장한 시간 - 2026-04-28 16:13:47.4534724
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 28일 (9주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<int> v{ 1, 2, 3, 4, 5 };
+
+	// [문제] v에서 3을 제거하라. v.size() == 4, 원소{1, 2, 4, 5}, v.capacity() == 5
+	// 원소제거는 std::remove()를 이용하면 된다.
+
+	std::remove(v.begin(), v.end(), 3); // {1,2, 4, 5, 5}
+
+	for (int i = 0; i < v.size(); ++i)
+		std::cout << v[i] << " ";
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-04-28 16:15:53.7141666
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 28일 (9주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<int> v{ 1, 2, 3, 4, 5 };
+
+	// [문제] v에서 3을 제거하라. v.size() == 4, 원소{1, 2, 4, 5}, v.capacity() == 5
+	// 원소제거는 std::remove()를 이용하면 된다.
+
+	std::vector<int>::iterator newEnd = std::remove(v.begin(), v.end(), 3);
+	v.erase(newEnd, v.end());
+
+	for (int i = 0; i < v.size(); ++i)
+		std::cout << v[i] << " ";
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-04-28 16:17:18.1722532
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 28일 (9주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<int> v{ 1, 2, 3, 4, 5 };
+
+	// [문제] v에서 3을 제거하라. v.size() == 4, 원소{1, 2, 4, 5}, v.capacity() == 5
+	// 원소제거는 std::remove()를 이용하면 된다.
+
+	v.erase(std::remove(v.begin(), v.end(), 3), v.end());
+	// C++20에 추가된 std::erase()는 알고리즘이 컨테이너를 iterator로 분리하던게 끊김
+	// std::erase(v, 3);
+
+	for (int i = 0; i < v.size(); ++i)
+		std::cout << v[i] << " ";
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-04-28 17:03:30.5054847
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 28일 (9주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<ZString> v{ "1", "22", "333" };
+
+	// [문제] v에서 "22"를 제거하라.
+	remove(v.begin(), v.end(), "22");
+
+	for (int i = 0; i < v.size(); ++i)
+		std::cout << v[i] << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-04-28 17:07:12.5073767
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 28일 (9주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<ZString> v{ "1", "22", "333" };
+
+	// [문제] v에서 "22"를 제거하라.
+	관찰 = true;
+	remove(v.begin(), v.end(), "22");
+
+	for (int i = 0; i < v.size(); ++i)
+		v[i].show();
+	관찰 = false;
+}
+
+=========================================
+저장한 시간 - 2026-04-28 17:13:46.4636131
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 28일 (9주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<ZString> v{ "1", "22", "4444", "55555"};
+
+	// [문제] "22" 다음에 "333"을 추가하라.
+	관찰 = true;
+	v.insert(v.begin() + 2, "333");			//++++v.begin() 으로도 가능
+	관찰 = false;
+	for(const ZString& zs : v)
+		std::cout << zs << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-04-28 17:18:35.4477462
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 28일 (9주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <list>			// insert 예시를 위해 추가
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::list<ZString> v{ "1", "22", "4444", "55555"};
+
+	// [문제] "22" 다음에 "333"을 추가하라.
+	관찰 = true;
+	v.insert(++++v.begin(), "333");				// list에서 insert()를 동작시켜서 효율성 비교
+	관찰 = false;
+	for(const ZString& zs : v)
+		std::cout << zs << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-04-28 17:19:24.0964392
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 28일 (9주 1일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <list>			// insert 예시를 위해 추가
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::list<ZString> v{ "1", "22", "4444", "55555"};
+
+	// [문제] "22" 다음에 "333"을 추가하라.
+	관찰 = true;
+	v.emplace(++++v.begin(), "333");			// emplace()가 더 효율적이다.
+	관찰 = false;
+	for(const ZString& zs : v)
+		std::cout << zs << std::endl;
+}

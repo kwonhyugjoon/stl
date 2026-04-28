@@ -5,6 +5,7 @@
 //--------------------------------------------------
 #include <print>
 #include <string>
+#include <algorithm>		// equal 2026. 4. 28
 #include "ZString.h"
 
 size_t ZString::gid{};				// 외부에서 초기화
@@ -82,6 +83,23 @@ ZString& ZString::operator=(ZString&& other) noexcept
 	if (관찰) special("이동할당");
 		
 	return *this;
+}
+
+// 2026. 4. 28
+bool ZString::operator==(const ZString& rhs) const
+{
+	// 동등성(equality)과 상등성(equivalence)의 차이
+	// id, len, p가 있는데 ==> 내가 관리하는 글자가 같으면 같은거다.
+	if (len != rhs.len)
+		return false;
+
+	return std::equal(p.get(), p.get() + len, rhs.p.get());			// 아래코드보다 STL에 적합한 코드
+
+	/*for (int i = 0; i < len; ++i){
+		if (p[i] != rhs.p[i])
+			return false;
+	}
+	return true;*/
 }
 
 size_t ZString::getLen() const

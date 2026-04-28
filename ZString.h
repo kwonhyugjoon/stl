@@ -22,6 +22,8 @@ public:
 	ZString& operator=(ZString&&) noexcept; // r-value reference를 인자로 받는 이동 할당 연산자 // 2026. 4. 20 move에서 예외를 던지지 않는다. noexcept
 
 	// 연산자오버로딩
+	// 2026. 4. 28
+	bool operator==(const ZString& rhs) const;
 	
 	// 인터페이스 - 나중에 삭제 예정
 	size_t getLen() const;

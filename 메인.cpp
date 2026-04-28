@@ -1,5 +1,5 @@
 //--------------------------------------------------
-// 2026 1학기 STL 월56 화78 4월 27일 (8주 2일)
+// 2026 1학기 STL 월56 화78 4월 28일 (9주 1일)
 //--------------------------------------------------
 // STL 컨테이너 - Containers are objects that store other objects.
 // Sequence Container
@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <list>			// insert 예시를 위해 추가
 #include "save.h"
 #include "ZString.h"
 
@@ -20,11 +21,12 @@ int main()
 {
 	save("메인.cpp");
 
-	std::vector<int> v{ 1, 2, 3, 4, 5 };
+	std::list<ZString> v{ "1", "22", "4444", "55555"};
 
-	// [문제] v에서 3을 제거하라. v.size() == 4, 원소{1, 2, 4, 5}, v.capacity() == 5
-	// 원소제거는 std::remove()를 이용하면 된다.
-
-	std::remove(v.begin(), v.end(), 3); // {1,2, 4, 5, 5}
-
+	// [문제] "22" 다음에 "333"을 추가하라.
+	관찰 = true;
+	v.emplace(++++v.begin(), "333");
+	관찰 = false;
+	for(const ZString& zs : v)
+		std::cout << zs << std::endl;
 }
