@@ -7867,7 +7867,7 @@ int main()
 
 	// [문제] "22" 다음에 "333"을 추가하라.
 	관찰 = true;
-	v.insert(++++v.begin(), "333");				// list에서 insert()를 동작시켜서 효율성 비교
+	v.insert(++++v.begin(), "333");				// vector보다 list에서 insert()는 효율이 좋다. 이렇게 ++++을 쓰진않는다. ++++은 임시
 	관찰 = false;
 	for(const ZString& zs : v)
 		std::cout << zs << std::endl;
@@ -7904,8 +7904,270 @@ int main()
 
 	// [문제] "22" 다음에 "333"을 추가하라.
 	관찰 = true;
-	v.emplace(++++v.begin(), "333");			// emplace()가 더 효율적이다.
+	v.emplace(++++v.begin(), "333");			// list에서는 emplace()가 더 효율적이다. 이렇게 ++++을 쓰진않는다. ++++은 임시
 	관찰 = false;
 	for(const ZString& zs : v)
 		std::cout << zs << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-05-04 13:35:44.6834195
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 04일 (9주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <list>			// insert 예시를 위해 추가
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<ZString> v{ "1", "22", "4444", "55555"};
+
+	// [문제] "22" 다음에 "333"을 추가하라.
+	관찰 = true;
+	v.emplace(v.begin() + 2, "333");		//벡터에서 emplace()는 많은 메모리 사용으로 비효율적이다.
+	관찰 = false;
+	for(const ZString& zs : v)
+		std::cout << zs << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-05-04 13:54:36.5656415
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 04일 (9주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <list>			// insert 예시를 위해 추가
+#include <iterator>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::list<ZString> v{ "1", "22", "4444", "55555"};
+
+	// [문제] "22" 다음에 "333"을 추가하라.
+	관찰 = true;
+	auto i = v.begin();
+	std::advance(i, 2);			// list에서 +2 는 안되고 advance로 이동해야 한다.
+	v.emplace(i, "333");
+	관찰 = false;
+	for(const ZString& zs : v)
+		std::cout << zs << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-05-04 14:09:51.2724414
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 04일 (9주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - dynamic (size) array - free-store에 data 관리
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <list>			// insert 예시를 위해 추가
+#include <iterator>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// [문제] v에서 길이가 2인 ZString을 삭제하라.
+	std::vector<ZString> v{ "1", "22", "333", "44", "4444", "33", "55", "55555" };
+	
+	// 조건식은 predicate을 사용하여 판단한다.
+	// precicate - bool 값을 리턴하는 callable-type
+	auto newEnd = remove_if(v.begin(), v.end(), [](const ZString& zs) {		// v.erase_if(v, []) C++20에 추가된 erase_if()는 알고리즘이 컨테이너를 iterator로 분리하던게 끊김
+		if (2 == zs.size())
+			return true;
+		return false;
+		});
+	v.erase(newEnd, v.end());
+
+	for(int i = 0; i < v.size(); ++i)
+		std::cout << v[i] << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-05-04 15:01:44.6143383
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 04일 (9주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - 캐시 히트율이 높아 고속 데이터 처리에 유리
+// - list<T> - 아무대서나 원소 추가/삭제 0(1)
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	//[문제] 파일에 있는 단어를 list<ZString>에 저장하라.
+	std::ifstream in("2026년 1학기 STL 월56 화78.txt");
+	if (not in) {
+		std::cout << "파일을 열 수 없습니다." << std::endl;
+		return 20260504;
+	}
+	std::list<ZString> words;
+
+	ZString zs;
+	while (in >> zs) {
+		words.push_back(zs);
+	}
+
+	관찰 = true;
+	std::cout << "읽은 단어 수 - " << words.size() << std::endl;
+	words.back().show();
+	관찰 = false;
+}
+
+=========================================
+저장한 시간 - 2026-05-04 15:03:45.9611909
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 04일 (9주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - 캐시 히트율이 높아 고속 데이터 처리에 유리
+// - list<T> - 아무대서나 원소 추가/삭제 0(1)
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	//[문제] 파일에 있는 단어를 list<ZString>에 저장하라.
+	std::ifstream in("2026년 1학기 STL 월56 화78.txt");
+	if (not in) {
+		std::cout << "파일을 열 수 없습니다." << std::endl;
+		return 20260504;
+	}
+	std::vector<ZString> words;			// vector는 list보다 빠르고, 메모리를 덜 사용한다. 
+	words.reserve(30000);
+	words.assign(std::istream_iterator<ZString>{in}, {} );		// std::list<ZString> words{ std::istream_iterator<ZString>{in}, {} };
+																// 리스트는 이런코드가 가능하지만 벡터는 assign()을 이용해서 vector로 옮겨야 한다.
+
+	관찰 = true;
+	std::cout << "읽은 단어 수 - " << words.size() << std::endl;
+	words.back().show();
+	관찰 = false;
+}
+
+=========================================
+저장한 시간 - 2026-05-04 15:05:16.0593926
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 4월 04일 (9주 2일)
+//--------------------------------------------------
+// STL 컨테이너 - Containers are objects that store other objects.
+// Sequence Container
+// - array<T, N> - 유일하게 컴파일 타임에 size 결정 - STACK, DATA
+// - vector<T> - 캐시 히트율이 높아 고속 데이터 처리에 유리
+// - list<T> - 아무대서나 원소 추가/삭제 0(1)
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	//[문제] 파일에 있는 단어를 list<ZString>에 저장하라.
+	std::ifstream in("2026년 1학기 STL 월56 화78.txt");
+	if (not in) {
+		std::cout << "파일을 열 수 없습니다." << std::endl;
+		return 20260504;
+	}
+	std::vector<ZString> v;
+	v.reserve(30000);
+	v.assign(std::istream_iterator<ZString>{in}, {} );
+
+	std::list<ZString> words{ v.begin(), v.end() };	
+
+	관찰 = true;
+	std::cout << "읽은 단어 수 - " << words.size() << std::endl;
+	words.back().show();
+	관찰 = false;
 }
