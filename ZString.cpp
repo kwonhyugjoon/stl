@@ -102,6 +102,17 @@ bool ZString::operator==(const ZString& rhs) const
 	return true;*/
 }
 
+// 2026. 5. 12 - 반복자 인터페이스
+char* ZString::begin() const 
+{
+	return p.get();
+}
+
+char* ZString::end() const
+{
+	return p.get() + len;
+}
+
 size_t ZString::getLen() const
 {
 	return len;
@@ -111,6 +122,11 @@ size_t ZString::getLen() const
 size_t ZString::size() const
 {
 	return len;
+}
+
+char* ZString::data() const		// 2026. 05. 11
+{
+	return p.get();
 }
 
 void ZString::special(std::string 동작) const

@@ -25,11 +25,16 @@ public:
 	// 2026. 4. 28
 	bool operator==(const ZString& rhs) const;
 	
+	// 2026. 5. 12
+	char* begin() const;
+	char* end() const;
+
 	// 인터페이스 - 나중에 삭제 예정
 	size_t getLen() const;
 
 	// STL 컨테이너가 되려면 다음 함수정도는 제공해야 - 2026. 4.20
 	size_t size() const;		// 표준 컨테이너라면 getLen대신 size가 합당하다.
+	char* data() const;		// 2026. 05. 11
 
 	void special(std::string) const;
 
