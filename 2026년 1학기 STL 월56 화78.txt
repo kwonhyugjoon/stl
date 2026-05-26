@@ -10326,3 +10326,369 @@ int main()
 	// *(i-1) 하면 잘 동작하지만 그건 엉터리 0점짜리 코드임.
 	// -> uniform하지 않기 때문. 언제 어디서나 사용 가능해야 함. (uniform manner)
 }
+
+=========================================
+저장한 시간 - 2026-05-26 15:56:21.8127057
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 5월 26일 (12주 1일)
+// 6/22 시험(15/2)
+//--------------------------------------------------
+// STL 반복자 - Iterators are a generalization of pointers that allow 
+//				a C++ program to work with different data structures in a uniform manner.
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <ranges>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;				// 관찰하려면 true
+
+//template<class 반복자>
+//void (f)(반복자 iter)
+//{
+//	std::cout << typeid(iterator_traits<반복자>::iterator_category).name() << std::endl;
+//}
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "Sphinx of black quartz judge my vow" };
+
+	// [문제] zs를 오름차순으로 정렬하세요.
+	std::sort(zs.begin(), zs.end());
+
+	std::cout << zs << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-05-26 16:12:15.0871190
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 5월 26일 (12주 1일)
+// 6/22 시험(15/2)
+//--------------------------------------------------
+// STL 반복자 - Iterators are a generalization of pointers that allow 
+//				a C++ program to work with different data structures in a uniform manner.
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;				// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "sphinx of black quartz judge my vow" };
+
+	// [문제] 한 글자 입력받아 zs에 있는지 출력하라.
+	// - 있다면 몇 번째 문자인지 출력
+	// - 없다면 없는 문자라고 출력하라.
+	while (true) {
+		std::cout << "찾을 글자는? ";
+		char c;
+		std::cin >> c;
+
+		ZString::iterator p = std::find(zs.begin(), zs.end(), c);
+
+		if (p not_eq zs.end()) {
+			std::cout << c << " - " << std::distance(zs.begin(), p)+1 << " 번째 문자입니다." << std::endl;
+		}
+		else {
+			std::cout << "없는 문자입니다" << std::endl;
+		}
+	}
+}
+
+=========================================
+저장한 시간 - 2026-05-26 16:28:26.7951816
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 5월 26일 (12주 1일)
+// 6/22 시험(15/2)
+//--------------------------------------------------
+// 반복자를 이용한 C++ 프로그램(uniform manner) - STL 알고리즘 함수
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;				// 관찰하려면 true
+
+template<class 반복자, class 값>
+반복자 my_find(반복자 beg, 반복자 end, 값 val)
+{
+	while (beg not_eq end) {
+		if ((*beg == val)==true)
+			return beg;
+		++beg;
+	}
+	return end;
+}
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "sphinx of black quartz judge my vow" };
+
+	// [문제] 한 글자 입력받아 zs에 있는지 출력하라.
+	// - 있다면 몇 번째 문자인지 출력
+	// - 없다면 없는 문자라고 출력하라.
+	while (true) {
+		std::cout << "찾을 글자는? ";
+		char c;
+		std::cin >> c;
+
+		ZString::iterator p = my_find(zs.begin(), zs.end(), c);
+
+		if (p not_eq zs.end()) {
+			std::cout << c << " - " << std::distance(zs.begin(), p)+1 << " 번째 문자입니다." << std::endl;
+		}
+		else {
+			std::cout << "없는 문자입니다" << std::endl;
+		}
+	}
+}
+
+=========================================
+저장한 시간 - 2026-05-26 16:54:13.5484626
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 5월 26일 (12주 1일)
+// 6/22 시험(15/2)
+//--------------------------------------------------
+// 반복자를 이용한 C++ 프로그램(uniform manner) - STL 알고리즘 함수
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;				// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "sphinx of black quartz 3 judge my 6 vow" };
+
+	// [문제] zs에서 처음 나오는 짝수를 찾아라.
+	ZString::iterator p = std::find_if(zs.begin(), zs.end(), [](char c) { 
+		if (isdigit(c)) {
+			int num = c - '0';
+			if (num % 2 == 0) {
+				return true;
+			}
+			return false;
+		}
+		});
+	
+	if (p != zs.end()) {
+		std::cout << "짝수 발견 - " << p - zs.begin() + 1 << std::endl;
+	}
+	else {
+		std::cout << "짝수 없음" << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-05-26 17:07:18.0593809
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 5월 26일 (12주 1일)
+// 6/22 시험(15/2)
+//--------------------------------------------------
+// 반복자를 이용한 C++ 프로그램(uniform manner) - STL 알고리즘 함수
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;				// 관찰하려면 true
+
+template<class 반복자, class 조건자>
+반복자 my_find_if(반복자 beg, 반복자 end, 조건자 pred)
+{
+	while( beg != end) {
+		if (pred(*beg))
+			return beg;
+		++beg;
+	}
+	return end;
+}
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "sphinx of black quartz 3 judge my 6 vow" };
+
+	// [문제] zs에서 처음 나오는 짝수를 찾아라.
+	ZString::iterator p = my_find_if(zs.begin(), zs.end(), [](char c) { 
+		if (isdigit(c)) {
+			return not (c & 1);	// 짝수인지 검사 - 2026. 5. 26
+		}
+		});
+	
+	if (p != zs.end()) {
+		std::cout << "짝수 발견 - " << p - zs.begin() + 1 << std::endl;
+	}
+	else {
+		std::cout << "짝수 없음" << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-05-26 17:11:15.6381069
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 5월 26일 (12주 1일)
+// 6/22 시험(15/2)
+//--------------------------------------------------
+// 반복자를 이용한 C++ 프로그램(uniform manner) - STL 알고리즘 함수
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;				// 관찰하려면 true
+
+template<class 반복자, class 조건자>
+반복자 my_find_if(반복자 beg, 반복자 end, 조건자 pred)
+{
+	while( beg != end) {
+		if (pred(*beg))
+			return beg;
+		++beg;
+	}
+	return end;
+}
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "sphinx of black quartz 3 judge my 6 vow" };
+
+	std::list<char> cont{ zs.begin(), zs.end() };
+
+	// [문제] zs에서 처음 나오는 짝수를 찾아라.
+	std::list<char>::iterator p = my_find_if(cont.begin(), cont.end(), [](char c) { 
+		if (isdigit(c)) {
+			return not (c & 1);	// 짝수인지 검사 - 2026. 5. 26
+		}
+		});
+	
+	if (p != cont.end()) {
+		std::cout << "짝수 발견 - " << std::distance(cont.begin(), p) + 1 << std::endl;
+	}
+	else {
+		std::cout << "짝수 없음" << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-05-26 17:14:15.1173335
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 5월 26일 (12주 1일)
+// 6/22 시험(15/2)
+//--------------------------------------------------
+// 반복자를 이용한 C++ 프로그램(uniform manner) - STL 알고리즘 함수
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;				// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "sphinx of black quartz 3 judge my 6 vow" };
+
+	copy(zs.begin(), zs.end(), std::ostream_iterator<ZString::value_type>{std::cout, " ### "});
+}
+
+=========================================
+저장한 시간 - 2026-05-26 17:20:28.8397013
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 5월 26일 (12주 1일)
+// 6/22 시험(15/2)
+//--------------------------------------------------
+// 반복자를 이용한 C++ 프로그램(uniform manner) - STL 알고리즘 함수
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;				// 관찰하려면 true
+
+template<class 반복자, class 출력반복자>
+void my_copy(반복자 b, 반복자 e, 출력반복자 o)
+{
+	while (b != e) {
+		*o = *b;
+		++b;
+		++o;
+	}
+}
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "sphinx of black quartz 3 judge my 6 vow" };
+	
+	// 코드 설명은 다음주에
+	my_copy(zs.begin(), zs.end(), std::ostream_iterator<ZString::value_type>{std::cout, " ### "});
+
+	std::cout << zs << std::endl;
+}

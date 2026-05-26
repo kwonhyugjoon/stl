@@ -23,30 +23,27 @@ public:
 
 	// void로 놓으면 안된다.
 	ZString_Iterator operator++() {
-		return ++p;
+		++p;
+		return *this;
 	}
 
 	ZString_Iterator operator--() {
-		return --p;
+		--p;
+		return *this;
 	}
 
 	ZString_Iterator operator+(difference_type n) const {
 		return p + n;
 	}
 
-	// 이쪽 문제있을듯
-	char operator*() const {
-		return *p;
-	}
-
-	char& operator*() {
+	char& operator*() const{
 		return *p;
 	}
 	// 여기까지 2개 * 오버로딩
 
-	bool operator!=(const ZString_Iterator& rhs) const {
-		return p != rhs.p;
-	}
+	//bool operator!=(const ZString_Iterator& rhs) const {
+	//	return p != rhs.p;
+	//}
 
 
 	// 관계연산자는 6가지가 있다.
@@ -58,11 +55,23 @@ public:
 		return p - rhs.p;
 	}
 
+	//2026. 5. 26
+	ZString_Iterator operator-(difference_type n) const {
+		return p - n;
+	}
+
 private:
 	char* p;
 };
 
+// ZString은 표준 컨테이너의 동작을 흉내내고 있다.
 class ZString {
+// 2026. 5. 26
+// 표준 컨테이너라면 다음과 같은 타입을 제공해야겠다.
+public:
+	using iterator = ZString_Iterator;
+	using value_type = char;
+
 public:
 	ZString();
 	~ZString();
