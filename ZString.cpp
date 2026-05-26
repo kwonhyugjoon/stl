@@ -60,30 +60,34 @@ ZString& ZString::operator=(const ZString& other)
 }
 
 // 이동 - C++11부터 지원되는 move semantics
-ZString::ZString(ZString&& other) noexcept
-	: id{ ++gid }
-{
-	len = other.len;
-	p.reset(other.p.release());
-	other.len = 0;
-	// 자기 자원이 이동된 other는 xvalue가 되고 이것을 사용하면 undefined behavior
-	if (관찰) special("이동생성");
-}
-
-ZString& ZString::operator=(ZString&& other) noexcept
-{
-	if (this == &other)
-		return *this;
-
-	len = other.len;
-	// 잘 한 건가? 내 메모리 반환했나? -> 살펴보기
-	p.reset(other.p.release());
-	other.len = 0;
-
-	if (관찰) special("이동할당");
-		
-	return *this;
-}
+// 2026. 04. 20 move에서 예외를 던지지 않는다.
+//ZString::ZString(ZString&& other) noexcept
+//	: id{ ++gid }
+//{
+//	len = other.len;
+//	p.reset(other.p.release());	// other의 p가 관리하는 메모리를 가져옴 - other는 자동으로 nullptr이 됨
+//
+//	other.len = 0;
+//	// 자기 자원이 이동된 other는 xvalues가 되고 이것을 사용하면 undefined behavior
+//	if (관찰)
+//		special("이동생성");
+//}
+//
+//ZString& ZString::operator=(ZString&& other) noexcept
+//{
+//	if (this == &other)
+//		return *this;
+//
+//	len = other.len;
+//	// 잘 한 건가? 내 메모리 반환했나?
+//	p.reset(other.p.release());
+//	other.len = 0;
+//
+//	if (관찰)
+//		special("이동할당");
+//
+//	return *this;
+//}
 
 // 2026. 4. 28
 bool ZString::operator==(const ZString& rhs) const
@@ -102,15 +106,27 @@ bool ZString::operator==(const ZString& rhs) const
 	return true;*/
 }
 
-// 2026. 5. 12 - 반복자 인터페이스
-char* ZString::begin() const 
+// 2026. 05. 12 - 반복자 인터페이스
+ZString_Iterator ZString::begin() const
 {
 	return p.get();
 }
 
-char* ZString::end() const
+ZString_Iterator ZString::end() const
 {
 	return p.get() + len;
+}
+
+// 2026. 05. 18 - 역방향 추가
+// 2026. 05. 19 - 역방향반복자는 반드시 class로 코딩해야 합니다.
+ZString_Iterator ZString::rbegin() const
+{
+	return p.get() + len;
+}
+
+ZString_Iterator ZString::rend() const
+{
+	return p.get();
 }
 
 size_t ZString::getLen() const
