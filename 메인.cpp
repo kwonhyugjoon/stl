@@ -1,27 +1,21 @@
 //--------------------------------------------------
-// 2026 1학기 STL 월56 화78 5월 26일 (12주 1일)
-// 6/22 시험(15/2)
+// 2026 1학기 STL 월56 화78 6월 02일 (13주 1일)
+// 6/22 시험(15/2) - 제일 마지막 시험
 //--------------------------------------------------
-// 반복자를 이용한 C++ 프로그램(uniform manner) - STL 알고리즘 함수
+// 
 //--------------------------------------------------
 #include <iostream>
-#include <algorithm>
-#include <vector>
-#include <list>
+#include <map>
+#include <random>
+#include <print>
 #include "save.h"
 #include "ZString.h"
 
-extern bool 관찰;				// 관찰하려면 true
+extern bool 관찰;			// 관찰하려면 true
 
-template<class 반복자, class 출력반복자>
-void my_copy(반복자 b, 반복자 e, 출력반복자 o)
-{
-	while (b != e) {
-		*o = *b;
-		++b;
-		++o;
-	}
-}
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ 0, 10'000 };
+std::normal_distribution nd{ 0.0, 0.09 };
 
 //--------
 int main()
@@ -29,10 +23,23 @@ int main()
 {
 	save("메인.cpp");
 
-	ZString zs{ "sphinx of black quartz 3 judge my 6 vow" };
-	
-	// 코드 설명은 다음주에
-	my_copy(zs.begin(), zs.end(), std::ostream_iterator<ZString::value_type>{std::cout, " ### "});
+	// map - 어디에 쓸 수 있나
+	// 유니폼 분포는 유니폼한가?
+	// 노멀분포를 화면에 출력
 
-	std::cout << zs << std::endl;
+	std::map<size_t, size_t> 노멀;
+	for (int i = 0; i < 100'000'000; ++i) {
+		double num = nd(dre);
+		num = num * 5000 + 5000;
+		if (num < 0)
+			num = 0;
+		if (10000 < num)
+			num = 10000;
+
+		++노멀[num / 200];
+	}
+
+	for (auto [구간, 개수] : 노멀) {
+		std::println("[{:2}] - {}", 구간, 개수);
+	}
 }

@@ -90,6 +90,10 @@ public:
 	// 2026. 4. 28
 	bool operator==(const ZString& rhs) const;
 	
+	// 2026. 6. 1
+	// set의 기본정렬 연산자 <
+	bool operator<(const ZString& rhs) const;
+
 	// 2026. 05. 12 - 반복자 인터페이스
 	// 2026. 06. 10EEE
 	ZString_Iterator begin() const;
@@ -102,6 +106,7 @@ public:
 
 	// 인터페이스 - 나중에 삭제 예정
 	size_t getLen() const;
+	size_t getId() const { return id; } // 2026. 6. 1
 
 	// STL 컨테이너가 되려면 다음 함수정도는 제공해야 - 2026. 4.20
 	size_t size() const;		// 표준 컨테이너라면 getLen대신 size가 합당하다.
