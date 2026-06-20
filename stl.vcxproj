@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="2026년 1학기 STL 월56 화78.txt" />
+    <Text Include="이상한 나라의 앨리스.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

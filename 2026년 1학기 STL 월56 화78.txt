@@ -13209,3 +13209,5125 @@ int main()
 		std::println("[{:2}] - {}", 구간, 개수);
 	}
 }
+
+=========================================
+저장한 시간 - 2026-06-08 13:36:19.6102096
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::unordered_set<int> us{ 1,2,3,4 };
+
+	for (int num : us) {
+		std::cout << num << ' ';
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 13:36:48.7899648
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::unordered_set<int> us{ 1,2,3,9 };
+
+	for (int num : us) {
+		std::cout << num << ' ';
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 13:51:13.0991599
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::cout << std::hash<int>{}(1) << std::endl;	// 1에 대한 해쉬값을 알려줘
+	std::cout << std::hash<int>{}(2) << std::endl;
+	std::cout << std::hash<int>{}(3) << std::endl;
+	std::cout << std::hash<int>{}(4) << std::endl;
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 13:51:43.1130474
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::cout << std::hash<int>{}(1) % 8 << std::endl;	// 1에 대한 해쉬값을 알려줘
+	std::cout << std::hash<int>{}(2) % 8 << std::endl;
+	std::cout << std::hash<int>{}(3) % 8 << std::endl;
+	std::cout << std::hash<int>{}(4) % 8 << std::endl;
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 13:58:38.0748128
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	// unordered_set의 메모리 구조
+	
+	std::unordered_multiset<int, std::hash<int>> ums;
+
+	while (true) {
+		std::cout << "추가할 int? ";
+		int num;
+		std::cin >> num;
+		std::cout << std::endl;
+
+		ums.insert(num);
+
+		for (int i = 0; i < ums.bucket_count(); ++i) {
+			std::print("[{: > 3}]", i);
+			for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+				std::cout << " - " << *j;
+			}
+			std::cout << std::endl;
+		}
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:03:27.0367342
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	// unordered_set의 메모리 구조
+
+	std::unordered_multiset<int, std::hash<int>> ums;
+
+	// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+	for (int i = 0; i < 63; ++i) {
+		ums.insert(i);
+	}
+
+	while (true) {
+		std::cout << "추가할 int? ";
+		int num;
+		std::cin >> num;
+		std::cout << std::endl;
+
+		ums.insert(num);
+
+		for (int i = 0; i < ums.bucket_count(); ++i) {
+			std::print("[{: > 3}]", i);
+			for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+				std::cout << " - " << *j;
+			}
+			std::cout << std::endl;
+		}
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:04:01.7247867
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	// unordered_set의 메모리 구조
+
+	std::unordered_multiset<int, std::hash<int>> ums;
+
+	// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+	for (int i = 0; i < 511; ++i) {
+		ums.insert(i);
+	}
+
+	while (true) {
+		std::cout << "추가할 int? ";
+		int num;
+		std::cin >> num;
+		std::cout << std::endl;
+
+		ums.insert(num);
+
+		for (int i = 0; i < ums.bucket_count(); ++i) {
+			std::print("[{: > 3}]", i);
+			for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+				std::cout << " - " << *j;
+			}
+			std::cout << std::endl;
+		}
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:09:05.5443120
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	class Dog {
+	public:
+		size_t operator()(const ZString& zs) const {
+			return 3;
+		}
+	};
+
+	std::unordered_multiset<ZString, Dog> ums{ "2026년", "6월", "8일", "월요일"};
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{: > 3}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " - " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:09:39.6105380
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	class Dog {
+	public:
+		size_t operator()(const ZString& zs) const {
+			return 3;
+		}
+	};
+
+	std::unordered_multiset<ZString, Dog> ums{ "2026년", "6월", "8일", "월요일"};
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{: > 3}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:15:30.1156269
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	class Dog {
+	public:
+		size_t operator()(const ZString& zs) const {
+			return std::hash<std::string>()(std::string(zs.begin(), zs.end()));
+		}
+	};
+
+	std::unordered_multiset<ZString, Dog> ums{ "2026년", "6월", "8일", "월요일" };
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{: > 3}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:15:46.4898625
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	class Dog {
+	public:
+		size_t operator()(const ZString& zs) const {
+			return std::hash<std::string>{}(std::string(zs.begin(), zs.end()));
+		}
+	};
+
+	std::unordered_multiset<ZString, Dog> ums{ "2026년", "6월", "8일", "월요일" };
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{: > 3}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:17:27.8133889
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	class Dog {
+	public:
+		size_t operator()(const ZString& zs) const {
+			return std::hash<std::string>{}(std::string(zs.begin(), zs.end()));
+		}
+	};
+
+	std::unordered_multiset<ZString, Dog> ums{ "2026년", "6월", "8일", "월요일" };
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{: > 3}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:20:57.0684277
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<>
+struct std::hash<ZString> {
+	size_t operator()(const ZString& zs) const {
+		return std::hash<std::string>{}(std::string(zs.begin(), zs.end()));
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	std::unordered_multiset<ZString> ums{ "2026년", "6월", "8일", "월요일" };
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{: > 3}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:22:58.6503251
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include <fstream>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<>
+struct std::hash<ZString> {
+	size_t operator()(const ZString& zs) const {
+		return std::hash<std::string>{}(std::string(zs.begin(), zs.end()));
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	std::ifstream in{ "메인.cpp" };
+	if (not in) {
+		std::cout << "파일 오류" << std::endl;
+		return 20260608;
+	}
+
+	std::unordered_multiset<ZString> ums{ std::istream_iterator<ZString>{in}, {} };
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{: > 3}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:23:25.6084881
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include <fstream>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<>
+struct std::hash<ZString> {
+	size_t operator()(const ZString& zs) const {
+		return std::hash<std::string>{}(std::string(zs.begin(), zs.end()));
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	std::ifstream in{ "메인.cpp" };
+	if (not in) {
+		std::cout << "파일 오류" << std::endl;
+		return 20260608;
+	}
+
+	std::unordered_multiset<ZString> ums{ std::istream_iterator<ZString>{in}, {} };
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{: > 3}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:23:48.0823775
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include <fstream>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<>
+struct std::hash<ZString> {
+	size_t operator()(const ZString& zs) const {
+		return std::hash<std::string>{}(std::string(zs.begin(), zs.end()));
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	std::ifstream in{ "메인.cpp" };
+	if (not in) {
+		std::cout << "파일 오류" << std::endl;
+		return 20260608;
+	}
+
+	std::unordered_multiset<ZString> ums{ std::istream_iterator<ZString>{in}, {} };
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{:>03}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:24:59.2776385
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include <fstream>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<>
+struct std::hash<ZString> {
+	size_t operator()(const ZString& zs) const {
+		return std::hash<std::string>{}(std::string(zs.begin(), zs.end()));
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	std::ifstream in{ "메인.cpp" };
+	if (not in) {
+		std::cout << "파일 오류" << std::endl;
+		return 20260608;
+	}
+
+	std::unordered_multiset<ZString> ums{ std::istream_iterator<ZString>{in}, {} };
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{:>03}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:25:38.7533919
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Unordered Associative Container - 0(1)에 데이터에 access 하려고 만든 컨테이너
+// - unordered_set / unordered_multiset 
+// - unordered_map / unordered_multimap
+//--------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include <numeric>
+#include <fstream>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<>
+struct std::hash<ZString> {
+	size_t operator()(const ZString& zs) const {
+		return std::hash<std::string>{}(std::string(zs.begin(), zs.end()));
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	// 1, 2, 3, 4 -> 4, 7, 6, 1
+
+	std::ifstream in{ "메인.cpp" };
+	if (not in) {
+		std::cout << "파일 오류" << std::endl;
+		return 20260608;
+	}
+
+	std::unordered_multiset<ZString> ums{ std::istream_iterator<ZString>{in}, {} };
+
+	for (int i = 0; i < ums.bucket_count(); ++i) {
+		// 왼편(버킷)은 벡터, 오른편(원소)는 리스트.
+		// 보니까 8개로 시작해서 8배씩 늘어나는듯?
+		std::print("[{:>03}]", i);
+		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+			std::cout << " --> " << *j;
+		}
+		std::cout << std::endl;
+	}
+
+	//while (true) {
+	//	/*std::cout << "추가할 int? ";
+	//	int num;
+	//	std::cin >> num;
+	//	std::cout << std::endl;
+
+	//	ums.insert(num);*/
+
+	//	
+	//}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:47:07.9911170
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 100'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 100'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// 벡터에서 찾기
+		std::vector<int> v{ num.begin(), num.end() };
+
+		size_t cnt{};
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:48:47.9046813
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 100'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 100'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// 벡터에서 찾기
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "벡터에서 찾는 중";
+		size_t cnt{};
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:51:22.4546012
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 1'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 100'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// 벡터에서 찾기
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "벡터에서 찾는 중";
+		size_t cnt{};
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:51:35.7378165
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 10'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 100'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// 벡터에서 찾기
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "벡터에서 찾는 중";
+		size_t cnt{};
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:53:07.7120040
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 10'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 20'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// 벡터에서 찾기
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "벡터에서 찾는 중";
+		size_t cnt{};
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:54:58.9740514
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 10'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 20'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// 벡터에서 찾기
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "벡터에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:57:00.0049184
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 10'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 20'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// vector에서 찾기
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "vector에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// set에서 찾기
+		std::set<int> s{ num.begin(), num.end() };
+
+		std::cout << "set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (s.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 14:59:01.3505381
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 10'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 20'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// vector에서 찾기
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "vector에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// set에서 찾기
+		std::set<int> s{ num.begin(), num.end() };
+
+		std::cout << "set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (s.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// unordered_set에서 찾기
+		std::unordered_set<int> us{ num.begin(), num.end() };
+
+		std::cout << "unordered_set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (us.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 15:02:00.4080789
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 10'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 20'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// vector에서 찾기
+		std::cout << std::endl;
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "vector에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// set에서 찾기
+		std::cout << std::endl;
+		std::set<int> s{ num.begin(), num.end() };
+
+		std::cout << "set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (s.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// unordered_set에서 찾기
+		std::cout << std::endl;
+		std::unordered_set<int> us{ num.begin(), num.end() };
+
+		std::cout << "unordered_set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (us.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 15:02:15.9359363
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 20'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 20'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// vector에서 찾기
+		std::cout << std::endl;
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "vector에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// set에서 찾기
+		std::cout << std::endl;
+		std::set<int> s{ num.begin(), num.end() };
+
+		std::cout << "set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (s.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// unordered_set에서 찾기
+		std::cout << std::endl;
+		std::unordered_set<int> us{ num.begin(), num.end() };
+
+		std::cout << "unordered_set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (us.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 15:03:15.1393645
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 10'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 20'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// vector에서 찾기
+		std::cout << std::endl;
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "vector에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end()) 
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// set에서 찾기
+		std::cout << std::endl;
+		std::multiset<int> s{ num.begin(), num.end() };
+
+		std::cout << "set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (s.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// unordered_set에서 찾기
+		std::cout << std::endl;
+		std::unordered_multiset<int> us{ num.begin(), num.end() };
+
+		std::cout << "unordered_set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (us.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-08 15:06:27.6941279
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 8일 (13주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// 컨테이너 찾기 성능 비교
+// 1. vector
+// 2. multiset
+// 3. unordered_multiset
+// 
+// 1000만개에서 10만개 찾기
+//--------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+const size_t NUM{ 10'000'000 };
+const size_t FNUM{ 10'000 };
+
+std::array<int, NUM> num;
+std::array<int, FNUM> fnum;
+
+std::default_random_engine dre{};
+std::uniform_int_distribution uid{ 1, 20'000'000 };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	for (int& num : num) {
+		num = uid(dre);
+	}
+
+	for (int& num : fnum) {
+		num = uid(dre);
+	}
+
+	{	// vector에서 찾기
+		std::cout << std::endl;
+		std::vector<int> v{ num.begin(), num.end() };
+
+		std::cout << "vector에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (std::find(v.begin(), v.end(), num) != v.end())
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+
+	{	// 정렬된 vector에서 찾기
+		std::cout << std::endl;
+		std::vector<int> v{ num.begin(), num.end() };
+		
+		std::cout << "벡터를 정렬하는 중";
+		std::sort(v.begin(), v.end());
+		std::cout << std::endl;
+
+		std::cout << "정렬된 vector에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (std::binary_search(v.begin(), v.end(), num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// multiset에서 찾기
+		std::cout << std::endl;
+		std::multiset<int> s{ num.begin(), num.end() };
+
+		std::cout << "set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (s.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+
+	{	// unordered_multiset에서 찾기
+		std::cout << std::endl;
+		std::unordered_multiset<int> us{ num.begin(), num.end() };
+
+		std::cout << "unordered_set에서 찾는 중";
+		size_t cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fnum) {
+			if (us.contains(num))
+				++cnt;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+
+		std::cout << std::endl;
+		std::cout << FNUM << "중에서 " << cnt << "개 찾음" << std::endl;
+		std::cout << "걸린시간 - " << std::chrono::duration_cast<std::chrono::microseconds>(stop - start) << std::endl;
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:46:54.5264967
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<int> v;
+	v.reserve(45);
+	std::iota(v.begin(), v.end(), 1);
+	// 이번 주 lotto 번호를 알려주자.
+	std::sample(v.begin(), v.end(), std::ostream_iterator<int>{std::cout, " "}, 5, dre);
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:47:48.5557004
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<int> v(45);
+	std::iota(v.begin(), v.end(), 1);
+	// 이번 주 lotto 번호를 알려주자.
+	std::sample(v.begin(), v.end(), std::ostream_iterator<int>{std::cout, " "}, 5, dre);
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:48:29.7004387
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<int> v(45);
+	std::iota(v.begin(), v.end(), 1);
+	// 이번 주 lotto 번호를 알려주자.
+	std::sample(v.begin(), v.end(), std::ostream_iterator<int>{std::cout, " "}, 5, dre);
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:55:14.4356858
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include <thread>
+#include <chrono>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+using namespace std::chrono_literals;
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "The quick brown fox jumps over the lazy dog." };
+	
+	for (int i = 0; i < 10; ++i)
+		std::cout << std::endl;
+
+	while (true) {
+		std::print("{:^80}", std::string{ zs.begin(), zs.end() });
+		std::this_thread::sleep_for(100ms);
+		std::cout << "\r";
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:55:38.2677455
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include <thread>
+#include <chrono>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+using namespace std::chrono_literals;
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "The quick brown fox jumps over the lazy dog." };
+	
+	for (int i = 0; i < 10; ++i)
+		std::cout << std::endl;
+
+	while (true) {
+		std::print("{:^80}", std::string{ zs.begin(), zs.end() });
+		std::this_thread::sleep_for(100ms);
+		std::cout << "\r";
+		std::rotate(zs.begin(), zs.end(), zs.begin() + 1);
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:56:34.7304230
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include <thread>
+#include <chrono>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+using namespace std::chrono_literals;
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "The quick brown fox jumps over the lazy dog." };
+	
+	for (int i = 0; i < 10; ++i)
+		std::cout << std::endl;
+
+	while (true) {
+		std::print("{:^80}", std::string{ zs.begin(), zs.end() });
+		std::this_thread::sleep_for(100ms);
+		std::cout << "\r";
+		std::rotate(zs.begin(),  zs.begin() + 1, zs.end());
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:57:27.1383327
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include <thread>
+#include <chrono>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+using namespace std::chrono_literals;
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "The quick brown fox jumps over the lazy dog." };
+	
+	for (int i = 0; i < 10; ++i)
+		std::cout << std::endl;
+
+	while (true) {
+		std::print("{:^80}", std::string{ zs.begin(), zs.end() });
+		std::this_thread::sleep_for(100ms);
+		std::cout << "\r";
+		std::rotate(zs.begin(), zs.begin() - 1, zs.end());
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:58:02.4056144
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include <thread>
+#include <chrono>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+using namespace std::chrono_literals;
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "The quick brown fox jumps over the lazy dog." };
+	
+	for (int i = 0; i < 10; ++i)
+		std::cout << std::endl;
+
+	while (true) {
+		std::print("{:^80}", std::string{ zs.begin(), zs.end() });
+		std::this_thread::sleep_for(100ms);
+		std::cout << "\r";
+		std::rotate(zs.begin(), zs.end() - 1 , zs.end());
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:58:12.8473124
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include <thread>
+#include <chrono>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+using namespace std::chrono_literals;
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "The quick brown fox jumps over the lazy dog. -->" };
+	
+	for (int i = 0; i < 10; ++i)
+		std::cout << std::endl;
+
+	while (true) {
+		std::print("{:^80}", std::string{ zs.begin(), zs.end() });
+		std::this_thread::sleep_for(100ms);
+		std::cout << "\r";
+		std::rotate(zs.begin(), zs.end() - 1 , zs.end());
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-09 16:58:39.8867023
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// 1. Non-modifying sequence operations
+// 2. Modifying sequence operations
+// 3. Sorting and related operations
+// 
+// 시험에 Set operations 사용한 문제 낼거임.
+// 큰 파일 두개를 주고 공통된 단어를 찾아내기. 뭐 이런거
+// 
+// STL Algorithm을 살펴보면
+// constrained Algorithm (C++ 20)이 보이는데,
+// 이거의 기본이 되는 개념이 concept과 range - [begin, end) 임.
+// lazy - evaluation (views, filter)
+//--------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include <random>
+#include <thread>
+#include <chrono>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+using namespace std::chrono_literals;
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	ZString zs{ "The quick brown fox jumps over the lazy dog. --> " };
+	
+	for (int i = 0; i < 10; ++i)
+		std::cout << std::endl;
+
+	while (true) {
+		std::print("{:^80}", std::string{ zs.begin(), zs.end() });
+		std::this_thread::sleep_for(100ms);
+		std::cout << "\r";
+		std::rotate(zs.begin(), zs.begin() + 1 , zs.end());
+	}
+
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:04:16.6023278
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:07:14.2610834
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:12:11.9291928
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+
+	// [문제] 길이가 홀수인 것과 짝수인 것으로 정렬하라.
+	// 앞에는 홀수 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	std::sort(v.begin(), v.end(), [](const ZString& a, const ZString& b) {
+		if (a.size() % 2 == 0 && b.size() % 2 == 1)
+			return 1;
+		return 0;
+		});
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:12:36.8969674
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+
+	// [문제] 길이가 홀수인 것과 짝수인 것으로 정렬하라.
+	// 앞에는 홀수 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	std::sort(v.begin(), v.end(), [](const ZString& a, const ZString& b) {
+		if (a.size() % 2 == 0 && b.size() % 2 == 1)
+			return false;
+		return true;
+		});
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:13:04.0454668
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+
+	// [문제] 길이가 홀수인 것과 짝수인 것으로 정렬하라.
+	// 앞에는 홀수 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	std::sort(v.begin(), v.end(), [](const ZString& a, const ZString& b) {
+		if (a.size() % 2 == 0 && b.size() % 2 == 1)
+			return false;
+		return true;
+		});
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:13:18.6327783
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	// [문제] 길이가 홀수인 것과 짝수인 것으로 정렬하라.
+	// 앞에는 홀수 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	std::sort(v.begin(), v.end(), [](const ZString& a, const ZString& b) {
+		if (a.size() % 2 == 0 && b.size() % 2 == 1)
+			return false;
+		return true;
+		});
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:16:33.0518539
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	// [문제] 길이가 홀수인 것과 짝수인 것으로 분리하라.
+	// 앞에는 홀수 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	// 홀수와 짝수가 각각 몇 개인지 출력하라.
+	auto it = std::partition(v.begin(), v.end(), [](const ZString& a) {
+		return a.size() % 2;
+	});
+
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:16:44.5254896
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	// [문제] 길이가 홀수인 것과 짝수인 것으로 분리하라.
+	// 앞에는 홀수 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	// 홀수와 짝수가 각각 몇 개인지 출력하라.
+	std::partition(v.begin(), v.end(), [](const ZString& a) {
+		return a.size() % 2;
+	});
+
+	for (const ZString& zs : v) {
+		std::cout << zs << " ";
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:18:49.2461726
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	// [문제] 길이가 홀수인 것과 짝수인 것으로 분리하라.
+	// 앞에는 홀수 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	// 홀수와 짝수가 각각 몇 개인지 출력하라.
+	auto p = std::partition(v.begin(), v.end(), [](const ZString& a) {
+		return a.size() % 2;
+		});
+
+	std::cout << "길이가 홀수인 단어 - " << std::distance(v.begin(), p) << "개" << std::endl;
+	for (auto i = v.begin(); i != p; ++i) {
+		std::cout << *i << " ";
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "길이가 짝수인 단어 - " << std::distance(p, v.end()) << "개" << std::endl;
+	for (auto i = p; i != v.end(); ++i) {
+		std::cout << *i << " ";
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:19:56.8753388
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	// [문제] 길이가 홀수인 것과 짝수인 것으로 분리하라.
+	// 앞에는 홀수 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	// 홀수와 짝수가 각각 몇 개인지 출력하라.
+	auto p = std::partition(v.begin(), v.end(), [](const ZString& a) {
+		return a.size() % 2;
+		});
+
+	std::cout << "길이가 홀수인 단어 - " << std::distance(v.begin(), p) << "개" << std::endl;
+	for (auto i = v.begin(); i != p; ++i) {
+		std::cout << *i << " ";
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "길이가 짝수인 단어 - " << std::distance(p, v.end()) << "개" << std::endl;
+	for (auto i = p; i != v.end(); ++i) {
+		std::cout << *i << " ";
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-09 17:20:40.1911962
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 9일 (14주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		std::cout << "파일 오류" << '\n';
+		return 20260609;
+	}
+	std::vector<ZString> v{ std::istream_iterator<ZString>{in}, {} };
+	std::cout << "모두 " << v.size() << "개의 단어를 읽었다." << std::endl;
+
+	std::sort(v.begin(), v.end());
+	auto newEnd = std::unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	std::cout << "중복을 제거한 단어 개수 - " << v.size() << std::endl;
+
+	std::shuffle(v.begin(), v.end(), dre);
+
+	// [문제] 길이가 홀수인 것과 짝수인 것으로 분리하라.
+	// 앞에는 홀수 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	// 홀수와 짝수가 각각 몇 개인지 출력하라.
+	auto p = std::partition(v.begin(), v.end(), [](const ZString& a) {
+		return *a.begin() == 'a';
+		});
+
+	std::cout << "길이가 홀수인 단어 - " << std::distance(v.begin(), p) << "개" << std::endl;
+	for (auto i = v.begin(); i != p; ++i) {
+		std::cout << *i << " ";
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "길이가 짝수인 단어 - " << std::distance(p, v.end()) << "개" << std::endl;
+	for (auto i = p; i != v.end(); ++i) {
+		std::cout << *i << " ";
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:27:31.6909149
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:35:08.7702099
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+
+	for (int num : v) {
+		std::cout << num << ' ';
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:38:23.9707283
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	for (int num : v) {
+		std::print("{:4}", num);
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:38:28.3623541
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	for (int num : v) {
+		std::print("{:4}", num);
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:42:50.3531735
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 3의 배수와 아닌것을 서로 분리하라.
+	// 3의 배수가 몇 개인지 출력하라.
+
+	std::ranges::partition(v, [](int num) {
+		if (num % 3 == 0) {
+			return true;
+		}
+		return false;
+		});
+
+	for (int num : v) {
+		std::print("{:4}", num);
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:47:37.3060145
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 3의 배수와 아닌것을 서로 분리하라.
+	// 3의 배수가 몇 개인지 출력하라.
+
+	auto p = std::partition(v.begin(), v.end(), [](int num) {
+		if (num % 3 == 0) {
+			return true;
+		}
+		return false;
+		});
+
+	std::cout << "3의 배수 개수: " << p - v.begin() << std::endl;
+	for (int num : v) {
+		std::print("{:4}", num);
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:51:30.3884329
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 3의 배수와 아닌것을 서로 분리하라.
+	// 3의 배수가 몇 개인지 출력하라.
+
+	auto p = std::partition(v.begin(), v.end(), [](int num) {
+		if (num % 3 == 0) {
+			return true;
+		}
+		return false;
+		});
+
+	std::cout << "3의 배수 개수: " << p - v.begin() << std::endl;
+	for (int num : v) {
+		std::print("{:4}", num);
+	}
+	std::cout << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:55:07.8218959
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 앞에서 부터 10등까지만 따로 골라내줘.
+	// 이때 1등부터 10등까지 순서는 정렬되어 있지 않아도 돼.
+	std::nth_element(v.begin(), v.begin() + 10, v.end());
+
+	for (auto i = v.begin(); i < v.begin() + 10; ++i) {
+		std::print("{:4}", *i);
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:55:25.5189937
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 앞에서 부터 10등까지만 따로 골라내줘.
+	// 이때 1등부터 10등까지 순서는 정렬되어 있지 않아도 돼.
+	std::nth_element(v.begin(), v.begin() + 10, v.end());
+
+	for (auto i = v.begin(); i < v.begin() + 10; ++i) {
+		std::print("{:4}", *i);
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:55:27.6755107
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 앞에서 부터 10등까지만 따로 골라내줘.
+	// 이때 1등부터 10등까지 순서는 정렬되어 있지 않아도 돼.
+	std::nth_element(v.begin(), v.begin() + 10, v.end());
+
+	for (auto i = v.begin(); i < v.begin() + 10; ++i) {
+		std::print("{:4}", *i);
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:55:52.3372749
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 앞에서 부터 20등까지만 따로 골라내줘.
+	// 이때 1등부터 20등까지 순서는 정렬되어 있지 않아도 돼.
+	std::nth_element(v.begin(), v.begin() + 20, v.end());
+
+	for (auto i = v.begin(); i < v.begin() + 20; ++i) {
+		std::print("{:4}", *i);
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:56:57.2829791
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 앞에서 부터 30등까지만 따로 골라내줘.
+	// 이때 1등부터 30등까지 순서는 정렬되어 있지 않아도 돼.
+	std::nth_element(v.begin(), v.begin() + 30, v.end());
+
+	for (auto i = v.begin(); i < v.begin() + 30; ++i) {
+		std::print("{:4}", *i);
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:58:50.9335538
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 1등 부터 30등까지 정렬.
+	std::partial_sort(v.begin(), v.begin() + 30, v.end());
+
+
+	for (auto i = v.begin(); i < v.begin() + 30; ++i) {
+		std::print("{:4}", *i);
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-15 13:59:58.0894905
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// 1부터 100까지 숫자를 준비한다.
+	std::vector<int> v(100);
+	std::ranges::iota(v, 1);		// range 설명은 잠시뒤에
+	std::ranges::shuffle(v, dre);
+
+	// [문제] 전체 정렬
+	std::sort(v.begin(), v.end());
+
+
+	for (auto i = v.begin(); i < v.begin() + 30; ++i) {
+		std::print("{:4}", *i);
+	}
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:02:38.8313556
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::ifstream in("이상한 나라의 앨리스.txt");
+	if (not in)
+		return 20290615;
+
+	std::vector<ZString>words(std::istream_iterator<ZString>{}, {});
+
+	관찰 = true;
+	words.back().show();
+	관찰 - false;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:02:49.9364926
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::ifstream in("이상한 나라의 앨리스.txt");
+	if (not in)
+		return 20290615;
+
+	std::vector<ZString>words(std::istream_iterator<ZString>{in}, {});
+
+	관찰 = true;
+	words.back().show();
+	관찰 - false;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:03:06.7147470
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::ifstream in("이상한 나라의 앨리스.txt");
+	if (not in)
+		return 20290615;
+
+	std::vector<ZString>words(std::istream_iterator<ZString>{in}, {});
+	std::cout << words.size();
+
+	관찰 = true;
+	words.back().show();
+	관찰 - false;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:03:49.6541996
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// STL Algorithms
+// - 정렬 관련 알고리즘 - 복잡도 순서대로
+// - partition - 복잡도가 제일 낮음
+// - nth_element
+// - partial_sort
+// - sort
+// - stable_sort - 제일 복잡함
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::ifstream in("이상한 나라의 앨리스.txt");
+	if (not in)
+		return 20290615;
+
+	std::list<ZString>words(std::istream_iterator<ZString>{in}, {});
+	std::cout << words.size();
+
+	관찰 = true;
+	words.back().show();
+	관찰 - false;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:18:11.0056464
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include <ranges>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:37:35.2871571
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	auto x = { 1, 2, 3, 4, 5 };
+	x.begin(); // 이런것도 가능함
+
+	// for (int num : ??? ) - ???가 range임. range for문.
+	for (int num : {1, 2, 3, 4, 5}) // 이런식으로도 range로 쓸 수 있다
+		std::cout << num << ' ';
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:41:22.0138839
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	std::vector<int> v = {1, 2, 3, 4, 5};
+
+	v.begin();		// 전통적인 range. v.begin()은 1을 가리키는 클래스 객체.
+	v.end();		// v.end()는 5의 다음을 가리키는 클래스 객체.
+	// [v.begin(), v.end())
+	// [v.begin(), 홀수인동안)
+	// [v.begin(), 무한)
+	// 이런게 다 가능한데, 끝을 판독하기 위해 만든게 iterator pair.
+
+	// for (int num : ??? ) - ???가 range임. range for문.
+	for (int num : {1, 2, 3, 4, 5}) // 이런식으로도 range로 쓸 수 있다
+		std::cout << num << ' ';
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:43:04.6278994
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	for (int num : std::views::iota(1, 100)) {	// iota로 만든 range
+		std::cout << num << ' ';
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:43:39.6667940
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	for (int num : std::views::iota(1)) {	// iota로 만든 range
+		std::cout << num << ' ';
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:45:04.2955683
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	for (int num : std::views::iota(1)) {	// iota(n, m). iota로 만든 n ~ m의 range. iota(1) -> 1부터 무한대의 range.
+		std::cout << num << ' ';
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:45:10.6428973
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	for (int num : std::views::iota(5)) {	// iota(n, m). iota로 만든 n ~ m의 range. iota(1) -> 1부터 무한대의 range.
+		std::cout << num << ' ';
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:45:56.8673794
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	for (int num : std::views::iota(1, 1000)) {	// iota(n, m). iota로 만든 n ~ m의 range. iota(n) -> n부터 무한대의 range.
+		std::print("{:8}", num);
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:48:20.3998346
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	auto 홀수 = [](int num) { 
+		return num % 2 == 1; 
+		};
+
+	for (int num 
+		: std::views::iota(1, 1000) 	// iota(n, m). iota로 만든 n ~ m의 range. iota(n) -> n부터 무한대의 range.
+		| std::views::filter(홀수)) 
+	{
+		std::print("{:8}", num);
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:54:19.3414242
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	auto 홀수 = [](int num) { 
+		return num % 2 == 1; 
+		};
+
+	auto 소수 = [](int num) {
+		if (num <= 1) return false;
+		int limit = std::sqrt(num);
+		for (int i = 2; i <= limit; ++i) {
+			if (num % i == 0) return false;
+		}
+		return true;
+		};
+
+	for (int num 
+		: std::views::iota(1, 1000) 	// iota(n, m). iota로 만든 n ~ m의 range. iota(n) -> n부터 무한대의 range.
+		| std::views::filter(홀수)		// filter와 람다를 활용해 원하는 것들만 뽑아낼 수 있음. filter는 어댑터 중 하나임.
+		| std::views::filter(소수))		
+	{
+		std::print("{:8}", num);
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:57:14.5338827
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	auto 홀수 = [](int num) { 
+		std::cout << num << " 홀수인가? ";
+		return num % 2 == 1; 
+		};
+
+	auto 소수 = [](int num) {
+		std::cout << num << " 혹시소수? ";
+		if (num <= 1) return false;
+		int limit = std::sqrt(num);
+		for (int i = 2; i <= limit; ++i) {
+			if (num % i == 0) return false;
+		}
+		return true;
+		};
+
+	for (int num 
+		: std::views::iota(1, 1000) 	// iota(n, m). iota로 만든 n ~ m의 range. iota(n) -> n부터 무한대의 range.
+		| std::views::filter(홀수)		// filter와 람다를 활용해 원하는 것들만 뽑아낼 수 있음. filter는 어댑터 중 하나임.
+		| std::views::filter(소수))		
+	{
+		std::print("{:8}", num);
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 14:57:39.4899331
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	auto 홀수 = [](int num) { 
+		std::cout << num << " 홀수인가? " << std::endl;
+		return num % 2 == 1; 
+		};
+
+	auto 소수 = [](int num) {
+		std::cout << num << " 혹시소수? " << std::endl;
+		if (num <= 1) return false;
+		int limit = std::sqrt(num);
+		for (int i = 2; i <= limit; ++i) {
+			if (num % i == 0) return false;
+		}
+		return true;
+		};
+
+	for (int num 
+		: std::views::iota(1, 10) 	// iota(n, m). iota로 만든 n ~ m의 range. iota(n) -> n부터 무한대의 range.
+		| std::views::filter(홀수)		// filter와 람다를 활용해 원하는 것들만 뽑아낼 수 있음. filter는 어댑터 중 하나임.
+		| std::views::filter(소수))		
+	{
+		std::print("{:8}", num);
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 15:00:38.6293089
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	auto 홀수 = [](int num) { 
+		std::cout << num << " 홀수인가? " << std::endl;
+		return num % 2 == 1; 
+		};
+
+	auto 소수 = [](int num) {
+		std::cout << num << " 혹시소수? " << std::endl;
+		if (num <= 1) return false;
+		int limit = std::sqrt(num);
+		for (int i = 2; i <= limit; ++i) {
+			if (num % i == 0) return false;
+		}
+		return true;
+		};
+
+	for (int num 
+		: std::views::iota(1, 10) 	// iota(n, m). iota로 만든 n ~ m의 range. iota(n) -> n부터 무한대의 range.
+		| std::views::filter(홀수)		// filter와 람다를 활용해 원하는 것들만 뽑아낼 수 있음. filter는 어댑터 중 하나임.
+		| std::views::filter(소수)
+		| std::views::reverse)
+	{
+		std::print("{:8}", num);
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 15:00:51.5712524
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// - range
+//   range factory / range adaptor
+//   view - light - weight object
+//   filter - lazy evaluation		( <=> eager evaluation )
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+std::default_random_engine dre{ std::random_device{}() };
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	auto 홀수 = [](int num) { 
+		return num % 2 == 1; 
+		};
+
+	auto 소수 = [](int num) {
+		if (num <= 1) return false;
+		int limit = std::sqrt(num);
+		for (int i = 2; i <= limit; ++i) {
+			if (num % i == 0) return false;
+		}
+		return true;
+		};
+
+	for (int num 
+		: std::views::iota(1, 1000) 	// iota(n, m). iota로 만든 n ~ m의 range. iota(n) -> n부터 무한대의 range.
+		| std::views::filter(홀수)		// filter와 람다를 활용해 원하는 것들만 뽑아낼 수 있음. filter는 어댑터 중 하나임.
+		| std::views::filter(소수)
+		| std::views::reverse)
+	{
+		std::print("{:8}", num);
+	}
+	
+}
+
+=========================================
+저장한 시간 - 2026-06-15 15:10:19.5470361
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// universal reference - range for 에서 range factory를 이용할 때 사용
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<typename T1, typename T2>
+auto add(const T1& a, const T2& b) {
+		return a + b;
+}
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+	
+	// [문제] add 함수를 작성하라.
+//	std::cout << add(1, 2) << std::endl;
+//	std::cout << add("2026년", "6월 15일") << std::endl;
+
+	//for ( auto&& num : std::views::iota(1))	// r-value reference를 추론하게 만들어준다. 어떤 타입일지 컴파일러에게 맡긴다.
+												// range가 l-value 일지 r-value 일지 모르니까, for문이 깨지지 않도록 컴파일러에게 맡기는 것임.
+												// 내가 원하는 자료의 타입을 완벽하게 맞춰줌. auto와 r-value reference.
+}
+
+=========================================
+저장한 시간 - 2026-06-15 15:11:36.0302130
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// universal reference - range for 에서 range factory를 이용할 때 사용
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<class T>
+T add(const T& a, const T& b) 
+{
+	return a + b;
+}
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// [문제] add 함수를 작성하라.
+	std::cout << add(1, 2) << std::endl;
+	std::cout << add<std::string>("2026년", "6월 15일") << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 15:12:34.6239000
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// universal reference - range for 에서 range factory를 이용할 때 사용
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+using namespace std;
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<class T>
+T add(const T& a, const T& b) 
+{
+	return a + b;
+}
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// [문제] add 함수를 작성하라.
+	std::cout << add(1, 2) << std::endl;
+	std::cout << add("2026년"s, "6월 15일"s) << std::endl;
+}
+
+=========================================
+저장한 시간 - 2026-06-15 15:17:52.6232967
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 15일 (14주 2일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// universal reference - range for 에서 range factory를 이용할 때 사용
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ranges>
+#include <numeric>
+#include <print>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+
+extern bool 관찰;			// 관찰하려면 true
+
+template<class T>
+T add(const T& a, const T& b)
+{
+	return a + b;
+}
+
+class Dog {
+public:
+	Dog() = default;
+	Dog(int num) : n{ num } {};
+
+	Dog operator+(const Dog& rhs) const {
+		return n + rhs.n;
+	}
+
+private:
+	int n;
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog) {
+		return os << dog.n;
+	}
+};
+
+//--------
+int main()
+//--------
+{
+	save("메인.cpp");
+
+	// [문제] add 함수를 작성하라.
+	std::cout << add(1, 2) << std::endl;
+	std::cout << add<std::string>("2026년", "6월 15일") << std::endl;
+	
+	std::cout << add(Dog{ 1 }, Dog{ 2 }) << std::endl; // 3이라고 출력되어야.
+}
+
+=========================================
+저장한 시간 - 2026-06-16 15:54:12.2936248
+=========================================
+
+//--------------------------------------------------
+// 2026 1학기 STL 월56 화78 6월 16일 (15주 1일)
+// 6/22 기말시험(15/2) - 제일 마지막 시험
+//--------------------------------------------------
+// universal reference - range for 에서 range factory를 이용할 때 사용
+// 
+// concept
+// type traits
+// 
+// C++ Constrained Algothm ( Range + Concept )
+//--------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include <print>
+#include "ZString.h"
+#include "save.h"
+
+using namespace std;
+
+extern bool 관찰;
+
+template <class T>
+concept 숫자만 = is_integral_v<T> || is_floating_point_v<T>;
+
+template<숫자만 T>
+T add(const T& a, const T& b)
+{
+	return a + b;
+}
+
+class Dog {
+public:
+	Dog() = default;
+	Dog(int n) : n(n) {};
+
+	Dog operator+(const Dog& rhs) const {
+		return n + rhs.n;
+	}
+
+private:
+	int n;
+
+	friend ostream& operator<<(ostream& os, const Dog& dog) {
+		return os << dog.n;
+	}
+};
+
+//----------
+int main()
+//----------
+{
+	save("메인.cpp");
+
+	// [문제] add 함수를 작성하라.
+	cout << add(1, 2) << endl;
+	cout << add(1.2, 3.4) << endl;
+	// concept - 컴파일 타임에 조건을 판단할 수 있음.
+	
+	// [질문] 내가 만든 class Dog가 내가 만든 concept 숫자만을 만족하도록 하고 싶다.
+	// cout << add(Dog{ 1 }, Dog{ 2 }) << endl;	// 3이라고 출력하라.
+}
